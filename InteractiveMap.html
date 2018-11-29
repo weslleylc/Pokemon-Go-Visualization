@@ -91,6 +91,7 @@
                     permalink: d._id,
                     lat: parseFloat(d.latitude),
                     lng: parseFloat(d.longitude),
+                    number: d.pokemonId,
                     city: d.city,
                     created_at: format.parse(d.appearedLocalTime)
                 };
@@ -109,22 +110,35 @@
                 return d.permalink;
             });
 
-        sites.enter().append("circle")
+        // sites.enter().append("circle")
+        //     .attr("class", "site")
+        //     .attr("cx", function(d) {
+        //         //console.log(d);
+        //         return projection([d.lng, d.lat])[0];
+        //     })
+        //     .attr("cy", function(d) {
+        //         return projection([d.lng, d.lat])[1];
+        //     })
+        //     .attr("r", 1)
+        //     .transition().duration(400)
+        //     .attr("r", 5);
+        sites.enter().append('svg:image')
             .attr("class", "site")
-            .attr("cx", function(d) {
+            .attr("href", function(d){
+                return "data/figures/"+d.number+".png"
+            })
+            .attr("x", function(d) {
                 //console.log(d);
                 return projection([d.lng, d.lat])[0];
             })
-            .attr("cy", function(d) {
+            .attr("y", function(d) {
                 return projection([d.lng, d.lat])[1];
             })
-            .attr("r", 1)
-            .transition().duration(400)
-            .attr("r", 5);
+            .attr("width", 30)
+            .attr("height", 30);
 
         sites.exit()
-            .transition().duration(200)
-            .attr("r",1)
+            .transition().duration(0)
             .remove();
     };
 
