@@ -29,10 +29,10 @@
         // Public variables width default settings
         var min = 0,
             max = 100,
-            step = 0.01,
+            step = 0.0000001,
             animate = true,
             orientation = "horizontal",
-            axis = false,
+            axis = true,
             margin = 50,
             value,
             active = 1,
@@ -43,7 +43,7 @@
         var axisScale,
             dispatch = d3.dispatch("slide", "slideend"),
             formatPercent = d3.format(".2%"),
-            tickFormat = d3.format(".0"),
+            tickFormat = d3.time.format("%d-%m-%Y"),
             handle1,
             handle2 = null,
             divRange,
@@ -54,10 +54,11 @@
 
                 // Create scale if not defined by user
                 if (!scale) {
-                    scale = d3.scale.linear().domain([min, max]);
+                    scale = d3.time.scale().domain([min, max]);
                 }
 
                 // Start value
+
                 value = value || scale.domain()[0];
 
                 // DIV container
@@ -312,7 +313,6 @@
 
         // Calculate nearest step value
         function stepValue(val) {
-
             if (val === scale.domain()[0] || val === scale.domain()[1]) {
                 return val;
             }
