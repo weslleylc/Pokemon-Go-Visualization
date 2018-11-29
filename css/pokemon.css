@@ -1,0 +1,14 @@
+.container_chart_1 {
+    position: relative;
+    padding-bottom: 40%;
+    height: 0;
+    overflow: hidden;
+}
+ 
+.container_chart_1 iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
