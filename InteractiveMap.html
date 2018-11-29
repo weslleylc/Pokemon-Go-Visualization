@@ -87,7 +87,7 @@
             .row(function(d) {
                 //console.log(d.appearedLocalTime)
                 return {
-                    permalink: +d.pokemonId,
+                    permalink: d._id,
                     lat: parseFloat(d.latitude),
                     lng: parseFloat(d.longitude),
                     city: d.city,
@@ -102,6 +102,7 @@
     });
 
     var displaySites = function(data) {
+        console.log(data);
         var sites = svg.selectAll(".site")
             .data(data, function(d) {
                 return d.permalink;
@@ -139,7 +140,7 @@
         .on("slide", function(evt, value) {
             var newData = _(site_data).filter( function(site) {
 
-                return site.created_at < value;
+                return site.created_at < value && site.created_at > value-(60*60*60*5);
             });
             //console.log("New set size ", newData);
 
