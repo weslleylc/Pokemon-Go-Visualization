@@ -62,6 +62,8 @@
         .attr("width", width)
         .attr("height", height);
 
+    var format = d3.time.format("%Y-%m-%dT%H:%M:%S");
+
     d3.json(mapPath, function(error, us) {
         if (error) return console.error(error);
 
@@ -81,14 +83,15 @@
             .attr("class", "state-boundary");
 
 
-        d3.tsv("/data/rest_777.txt")
+        d3.csv("data/pokemon_appears_US.csv")
             .row(function(d) {
+                //console.log(d.appearedLocalTime)
                 return {
-                    permalink: d.permalink,
-                    lat: parseFloat(d.lat),
-                    lng: parseFloat(d.long),
+                    permalink: +d.pokemonId,
+                    lat: parseFloat(d.latitude),
+                    lng: parseFloat(d.longitude),
                     city: d.city,
-                    created_at: moment(d.created_at,"YYYY-MM-DD HH:mm:ss").unix()
+                    created_at: format.parse(d.appearedLocalTime)
                 };
             })
             .get(function(err, rows) {
@@ -107,6 +110,7 @@
         sites.enter().append("circle")
             .attr("class", "site")
             .attr("cx", function(d) {
+                //console.log(d);
                 return projection([d.lng, d.lat])[0];
             })
             .attr("cy", function(d) {
@@ -122,9 +126,8 @@
             .remove();
     };
 
-    var format = d3.time.format("%Y-%m-%dT%H:%M:%SZ");
-    var startDate = format.parse("2016-09-02T21:50:07Z");
-    var endDate = format.parse("2016-09-08T03:57:25Z");
+    var startDate = format.parse("2016-09-02T21:50:07");
+    var endDate = format.parse("2016-09-08T03:57:25");
     var secondsInDay = 60 * 60 * 24;
     timeScale = d3.time.scale().domain([startDate, endDate]);
     //console.log(startDate);
@@ -135,9 +138,10 @@
         .step(secondsInDay)
         .on("slide", function(evt, value) {
             var newData = _(site_data).filter( function(site) {
+
                 return site.created_at < value;
             });
-            // console.log("New set size ", newData.length);
+            //console.log("New set size ", newData);
 
             displaySites(newData);
         })
