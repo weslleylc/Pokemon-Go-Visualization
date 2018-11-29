@@ -1,2 +1,5 @@
-# Pokemon-Go-Visualization
-A visualization project about pokemon Go
+## Visualização Github Pages
+https://weslleylc.github.io/Pokemon-Go-Visualization/
+
+##Mapa
+[InteractiveMap.html](InteractiveMap.html)<br>
