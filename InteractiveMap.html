@@ -176,6 +176,7 @@
         .step(secondsInDay)
         .on("slide", function(evt, value) {
             var newData = _(site_data).filter( function(site) {
+                actualDate = myslider.value();
                 return site.created_at < value && site.created_at > value-step;
             });
             //console.log("New set size ", newData);
@@ -193,11 +194,19 @@
         //console.log("New set size ", newData);
         displaySites(newData);
         myslider.value(actualDate);
-
+        if(actualDate > endDate){
+            moving = false;
+            clearInterval(timer);
+            // timer = 0;
+            playButton.text("Play");
+        }
     }
 
 
      playButton.on("click", function() {
+         if (actualDate !=  startDate.getTime()){
+             actualDate =  myslider.value();
+         }
         var button = d3.select(this);
         if (button.text() == "Pause") {
           moving = false;
