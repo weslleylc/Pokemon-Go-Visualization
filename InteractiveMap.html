@@ -61,8 +61,8 @@
 <body>
 
 <div>
-<div id="slider3"></div>
     <button id="play-button">Play</button>
+    <div id="slider3"></div>
 </div>
 
 <script>
@@ -186,16 +186,30 @@
     function update(){
         console.log(actualDate);
         actualDate = actualDate + step;
+
+        var newData = _(site_data).filter( function(site) {
+            return site.created_at < actualDate && site.created_at > actualDate-step;
+        });
+        //console.log("New set size ", newData);
+        displaySites(newData);
         myslider.value(actualDate);
 
     }
 
-    playButton
-        .on("click", function() {
-            update();
-            // setInterval(update, 1000);
-        });
 
-
+     playButton.on("click", function() {
+        var button = d3.select(this);
+        if (button.text() == "Pause") {
+          moving = false;
+          clearInterval(timer);
+          // timer = 0;
+          button.text("Play");
+        } else {
+          moving = true;
+          timer = setInterval(update, 1000);          
+          button.text("Pause");
+        }
+        console.log("Slider moving: " + moving);
+      });
 </script>
 </body>
