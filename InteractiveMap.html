@@ -149,7 +149,7 @@
                 return "data/figures/"+d.number+".png"
             })
             .attr("x", function(d) {
-                //console.log(d);
+                console.log("TEste");
                 return projection([d.lng, d.lat])[0];
             })
             .attr("y", function(d) {
@@ -159,7 +159,6 @@
             .attr("height", 30);
 
         sites.exit()
-            .transition().duration(0)
             .remove();
     };
 
@@ -182,17 +181,21 @@
             //console.log("New set size ", newData);
             displaySites(newData);
         });
-        d3.select('#slider3').call(myslider);
+    d3.select('#slider3').call(myslider);
 
     function update(){
         console.log(actualDate);
         actualDate = actualDate + step;
         myslider.value(actualDate);
-    };
+
+    }
+
     playButton
-            .on("click", function() {
-                update();
-            });
+        .on("click", function() {
+            update();
+            // setInterval(update, 1000);
+        });
+
 
 </script>
 </body>
