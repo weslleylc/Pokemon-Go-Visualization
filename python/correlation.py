@@ -30,5 +30,9 @@ dfFull=dfFull[['pokemonId', 'latitude', 'longitude',
 dfFull[columns.columns]=columns
 dfFull=dfFull[~dfFull.isnull().any(axis=1)]
 dfFull['closeToWater']=dfFull['closeToWater'].astype(bool)
+dfFull['urban']=dfFull['urban'].astype(bool)
+dfFull['suburban']=dfFull['suburban'].astype(bool)
+dfFull['midurban']=dfFull['midurban'].astype(bool)
+dfFull['rural']=dfFull['rural'].astype(bool)
 
 corr=dfFull.corr()
