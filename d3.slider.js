@@ -29,7 +29,7 @@
         // Public variables width default settings
         var min = 0,
             max = 100,
-            step = 0.0000001,
+            step = 100/(24*60*6),
             animate = true,
             orientation = "horizontal",
             axis = true,
@@ -47,6 +47,7 @@
             handle1,
             handle2 = null,
             divRange,
+            divButton,
             sliderLength;
 
         function slider(selection) {
@@ -102,6 +103,7 @@
 
                     if (toType(value) == "array" && value.length == 2) {
                         divRange = d3.select(this).append('div').classed("d3-slider-range", true);
+
 
                         handle1.style("left", formatPercent(scale(value[ 0 ])));
                         divRange.style("left", formatPercent(scale(value[ 0 ])));

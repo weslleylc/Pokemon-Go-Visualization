@@ -30,6 +30,25 @@
             width: 900px;
         }
 
+        #play-button {
+            position: relative;
+            top: 100px;
+            left: 0px;
+            background: #f08080;
+            padding-right: 26px;
+            border-radius: 3px;
+            border: none;
+            color: white;
+            margin: 0;
+            width: 60px;
+            cursor: pointer;
+            height: 30px;
+        }
+
+        #play-button:hover {
+            background-color: #696969;
+        }
+
     </style>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
@@ -41,8 +60,10 @@
 
 <body>
 
+<div>
 <div id="slider3"></div>
-
+    <button id="play-button">Play</button>
+</div>
 
 <script>
 
@@ -62,7 +83,7 @@
     var svg = d3.select("body").append("svg")
         .attr("width", width)
         .attr("height", height);
-
+    var playButton = d3.select("#play-button");
     var format = d3.time.format("%Y-%m-%dT%H:%M:%S");
 
     d3.json(mapPath, function(error, us) {
@@ -104,7 +125,7 @@
     });
 
     var displaySites = function(data) {
-        console.log(data);
+        //console.log(data);'
         var sites = svg.selectAll(".site")
             .data(data, function(d) {
                 return d.permalink;
@@ -145,23 +166,33 @@
     var startDate = format.parse("2016-09-02T21:50:07");
     var endDate = format.parse("2016-09-08T03:57:25");
     var secondsInDay = 60 * 60 * 24;
+    var actualDate = startDate.getTime();
+    var step = 1000* 60 * 30;
     timeScale = d3.time.scale().domain([startDate, endDate]);
     //console.log(startDate);
-    d3.select('#slider3').call(d3.slider()
-        //.time.scale().domain([startDate, endDate])
+    var myslider = d3.slider()
+    //.time.scale().domain([startDate, endDate])
         .min(startDate)
         .max(endDate)
         .step(secondsInDay)
         .on("slide", function(evt, value) {
             var newData = _(site_data).filter( function(site) {
-
-                return site.created_at < value && site.created_at > value-(60*60*60*5);
+                return site.created_at < value && site.created_at > value-step;
             });
             //console.log("New set size ", newData);
-
             displaySites(newData);
-        })
-    );
+        });
+        d3.select('#slider3').call(myslider);
+
+    function update(){
+        console.log(actualDate);
+        actualDate = actualDate + step;
+        myslider.value(actualDate);
+    };
+    playButton
+            .on("click", function() {
+                update();
+            });
 
 </script>
 </body>
