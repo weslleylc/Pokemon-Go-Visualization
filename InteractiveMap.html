@@ -49,11 +49,25 @@
             background-color: #696969;
         }
 
+        #time-container {
+            position: relative;
+            top: 60px;
+            left: 530px;
+            padding-right: 26px;
+            border-radius: 3px;
+            margin: 0;
+        }
+
     </style>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="d3.slider.js"></script>
 </head>
 
@@ -63,6 +77,20 @@
 <div>
     <button id="play-button">Play</button>
     <div id="slider3"></div>
+    <div class="container" id="time-container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker5'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -166,7 +194,7 @@
     var endDate = format.parse("2016-09-08T03:57:25");
     var secondsInDay = 60 * 60 * 24;
     var actualDate = startDate.getTime();
-    var step = 1000* 60 * 30;
+    var step = 1000* 60;// * 30;
     timeScale = d3.time.scale().domain([startDate, endDate]);
     //console.log(startDate);
     var myslider = d3.slider()
@@ -220,5 +248,13 @@
         }
         console.log("Slider moving: " + moving);
       });
+
+    $('#datetimepicker5').datetimepicker({
+        useCurrent: false, //this is important as the functions sets the default date value to the current value
+        format: 'DD/MM/YY HH:mm',
+        defaultDate: startDate,
+        minDate: startDate,
+        maxDate: endDate
+    });
 </script>
 </body>
