@@ -101,6 +101,18 @@
     //var mapPath = "/data/us-10m.json";
     var mapPath = "https://raw.githubusercontent.com/weslleylc/Pokemon-Go-Visualization/master/data/us-10m.json";
 
+    var popById = d3.map();
+
+
+    d3.csv("data/stateSocialData.csv").row(function(d) { popById.set(+d.STATE, +d.popSize) }).get(function(){});
+    console.log(popById);
+    // Promise.all(promises).then(ready);
+
+    // function ready() {
+    //     console.log(popById)
+    // };
+
+
     var projection = d3.geo.albersUsa()
         .scale(1280)
         .translate([width / 2, height / 2]);
@@ -115,11 +127,8 @@
     var format = d3.time.format("%Y-%m-%dT%H:%M:%S");
 
     var color = d3.scale.linear()
-        .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
-
-    var quantize = d3.scale.quantize()
         .domain([500000,40000000])
-        .range(color);
+        .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
 
     d3.json(mapPath, function(error, us) {
         if (error) return console.error(error);
@@ -139,6 +148,19 @@
             .attr("d", path)
             .attr("class", "state-boundary");
 
+        svg.append("g")
+            .attr("class", "counties")
+            .selectAll("path")
+            // .data(topojson.feature(us, us.objects.counties).features)
+            .data(topojson.feature(us, us.objects.states).features)
+            .enter().append("path")
+            .attr("style", function(d) {
+                console.log(color(popById.get(d.id)));
+                return "fill:"+color(popById.get(d.id));
+            })
+            .attr("d", path)
+            .append("title") // Tooltip
+            .text(function(d) { return d.rate + "%"; });
 
         d3.csv("data/pokemon_appears_US.csv")
             .row(function(d) {

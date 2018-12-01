@@ -4,7 +4,7 @@
     <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InteractiveMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/InteractiveMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InteractiveMapColorivel.html" beforeDir="false" afterPath="$PROJECT_DIR$/InteractiveMapColorivel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/stateSocialData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/stateSocialData.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -29,14 +29,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="2" />
+          <entry key="html" value="4" />
           <entry key="js" value="1" />
           <entry key="json" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
+          <entry key="HTML" value="4" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
         </counts>
@@ -44,14 +44,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="43" />
-          <entry key="html" value="1785" />
+          <entry key="html" value="2257" />
           <entry key="js" value="407" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="43" />
-          <entry key="HTML" value="1785" />
+          <entry key="HTML" value="2257" />
           <entry key="JavaScript" value="407" />
         </counts>
       </usages-collector>
@@ -62,8 +62,22 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+            <state relative-caret-position="368">
+              <caret line="130" column="88" selection-start-line="130" selection-start-column="88" selection-end-line="130" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../repositorio/d3_interactive/usa2.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../repositorio/d3_interactive/usa.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="103" column="26" lean-forward="true" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -102,14 +116,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>d3.slider</find>
-      <find>button</find>
-      <find>divButton</find>
-      <find>map</find>
-      <find>d3.select</find>
-      <find>divRange</find>
-      <find>console.log</find>
-      <find>append</find>
       <find>slider3</find>
       <find>slide</find>
       <find>sl</find>
@@ -131,7 +137,15 @@
       <find>tran</find>
       <find>us-</find>
       <find>state</find>
+      <find>csv</find>
+      <find>promises</find>
+      <find>promis</find>
+      <find>/data</find>
       <find>id</find>
+      <find>ready</find>
+      <find>.ro</find>
+      <find>getfunc</find>
+      <find>color</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,8 +156,8 @@
       <list>
         <option value="$PROJECT_DIR$/d3.slider.css" />
         <option value="$PROJECT_DIR$/d3.slider.js" />
-        <option value="$PROJECT_DIR$/InteractiveMap.html" />
         <option value="$PROJECT_DIR$/InteractiveMapColorivel.html" />
+        <option value="$PROJECT_DIR$/InteractiveMap.html" />
       </list>
     </option>
   </component>
@@ -224,12 +238,12 @@
       <updated>1543577910636</updated>
       <workItem from="1543577911883" duration="22785000" />
       <workItem from="1543690535026" duration="1135000" />
-      <workItem from="1543698077540" duration="3574000" />
+      <workItem from="1543698077540" duration="6692000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27494000" />
+    <option name="totallyTimeSpent" value="30612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -289,6 +303,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../repositorio/d3_interactive/usa2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/us-10m.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
@@ -296,10 +313,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../repositorio/d3_interactive/usa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="103" column="26" lean-forward="true" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+        <state relative-caret-position="368">
+          <caret line="130" column="88" selection-start-line="130" selection-start-column="88" selection-end-line="130" selection-end-column="88" />
         </state>
       </provider>
     </entry>
