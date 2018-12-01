@@ -114,6 +114,13 @@
     var playButton = d3.select("#play-button");
     var format = d3.time.format("%Y-%m-%dT%H:%M:%S");
 
+    var color = d3.scale.linear()
+        .range(["rgb(213,222,217)","rgb(69,173,168)","rgb(84,36,55)","rgb(217,91,67)"]);
+
+    var quantize = d3.scale.quantize()
+        .domain([500000,40000000])
+        .range(color);
+
     d3.json(mapPath, function(error, us) {
         if (error) return console.error(error);
 
@@ -122,15 +129,29 @@
             .attr("d", path)
             .attr("class", "land-boundary");
 
-        svg.append("path")
-            .datum(topojson.mesh(us, us.objects.counties, function(a, b) { return a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0); }))
-            .attr("d", path)
-            .attr("class", "county-boundary");
+        // svg.append("path")
+        //     .datum(topojson.mesh(us, us.objects.counties, function(a, b) { return a !== b && (a.id / 1000 | 0) === (b.id / 1000 | 0); }))
+        //     .attr("d", path)
+        //     .attr("class", "county-boundary");
 
         svg.append("path")
             .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
             .attr("d", path)
             .attr("class", "state-boundary");
+
+        svg.append("g")
+            .attr("class", "counties")
+            .selectAll("path")
+            // .data(topojson.feature(us, us.objects.counties).features)
+            .data(topojson.feature(us, us.objects.states).features)
+            .enter().append("path")
+            .attr("fill", function(d) {
+                // console.log(d);
+                return color(d.rate = unemployment.get(d.id));
+            })
+            .attr("d", path)
+            .append("title") // Tooltip
+            .text(function(d) { return d.rate + "%"; });
 
 
         d3.csv("data/pokemon_appears_US.csv")
@@ -257,7 +278,7 @@
         minDate: startDate,
         maxDate: endDate
     });
-
+    $('#datetimepicker5').data("DateTimePicker").date(new Date(actualDate));
     $("#datetimepicker5").on("dp.change", function (e) {
         actualDate = $('#datetimepicker5').data("DateTimePicker").date().unix()*1000;
         var newData = _(site_data).filter( function(site) {
@@ -266,5 +287,6 @@
         displaySites(newData);
         myslider.value(actualDate);
     });
+
 </script>
 </body>

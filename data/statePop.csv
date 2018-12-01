@@ -1,50 +1,50 @@
-name,populaction
-Alabama,4777326
-Arizona,6410979
-Arkansas,2916372
-California,37325068
-Colorado,5042853
-Connecticut,3572213
-Delaware,900131
-Florida,18885152
-Georgia,9714569
-Hawaii,1362730
-Idaho,1567803
-Illinois,12823860
-Indiana,6485530
-Iowa,3047646
-Kansas,2851183
-Kentucky,4340167
-Louisiana,4529605
-Maryland,5785496
-Massachusetts,6560595
-Michigan,9897264
-Minnesota,5313081
-Mississippi,2967620
-Missouri,5982413
-Montana,990785
-Nebraska,1827306
-Nevada,2704204
-New Hampshire,1317474
-New Jersey,8793888
-New Mexico,2055287
-New York,19398125
-North Carolina,9544249
-North Dakota,676253
-Ohio,11533561
-Oklahoma,3749005
-Oregon,3836628
-Pennsylvania,12699589
-Rhode Island,1052471
-South Carolina,4630351
-South Dakota,815871
-Tennessee,6353226
-Texas,25208897
-Utah,2766233
-Vermont,625498
-Virginia,8014955
-Washington,6738714
-"Washington, D.C",635630
-West Virginia,1850481
-Wisconsin,5687219
-Wyoming,562803
+,state,populaction
+0,Virginia,8014955
+1,Washington,6738714
+2,Texas,25208897
+3,Georgia,9714569
+4,Florida,18885152
+5,California,37325068
+6,Massachusetts,6560595
+7,Arizona,6410979
+8,Maryland,5785496
+9,Vermont,625498
+10,North Carolina,9544249
+11,Oregon,3836628
+12,Colorado,5042853
+13,Kansas,2851183
+14,Ohio,11533561
+15,Illinois,12823860
+16,Louisiana,4529605
+17,West Virginia,1850481
+18,Missouri,5982413
+19,South Carolina,4630351
+20,New York,19398125
+21,Kentucky,4340167
+22,Connecticut,3572213
+23,Pennsylvania,12699589
+24,Nevada,2704204
+25,Minnesota,5313081
+26,"Washington, D.C.",635630
+27,Wyoming,562803
+28,New Jersey,8793888
+29,Oklahoma,3749005
+30,Indiana,6485530
+31,Wisconsin,5687219
+32,Tennessee,6353226
+33,South Dakota,815871
+34,Rhode Island,1052471
+35,Michigan,9897264
+36,Arkansas,2916372
+37,Utah,2766233
+38,Mississippi,2967620
+39,Idaho,1567803
+40,New Hampshire,1317474
+41,Montana,990785
+42,Nebraska,1827306
+43,Delaware,900131
+44,Alabama,4777326
+45,North Dakota,676253
+46,New Mexico,2055287
+47,Iowa,3047646
+48,Hawaii,1362730
