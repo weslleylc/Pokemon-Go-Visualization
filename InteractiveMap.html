@@ -209,13 +209,14 @@
             });
             //console.log("New set size ", newData);
             displaySites(newData);
+            $('#datetimepicker5').data("DateTimePicker").date(new Date(actualDate));
         });
     d3.select('#slider3').call(myslider);
 
     function update(){
         //console.log(actualDate);
         actualDate = actualDate + step;
-
+        $('#datetimepicker5').data("DateTimePicker").date(new Date(actualDate));
         var newData = _(site_data).filter( function(site) {
             return site.created_at < actualDate && site.created_at > actualDate-step;
         });
