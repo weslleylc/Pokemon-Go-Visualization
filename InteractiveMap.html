@@ -139,20 +139,6 @@
             .attr("d", path)
             .attr("class", "state-boundary");
 
-        svg.append("g")
-            .attr("class", "counties")
-            .selectAll("path")
-            // .data(topojson.feature(us, us.objects.counties).features)
-            .data(topojson.feature(us, us.objects.states).features)
-            .enter().append("path")
-            .attr("fill", function(d) {
-                // console.log(d);
-                return color(d.rate = unemployment.get(d.id));
-            })
-            .attr("d", path)
-            .append("title") // Tooltip
-            .text(function(d) { return d.rate + "%"; });
-
 
         d3.csv("data/pokemon_appears_US.csv")
             .row(function(d) {

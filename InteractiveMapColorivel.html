@@ -128,7 +128,7 @@ for (var i = 0; i < data.length; i++) {
 	// Grab State Name
 	var dataState = data[i].name;
 
-	// Grab data value 
+	// Grab data value
 	var dataValue = data[i].popSize;
 
 	// Find the corresponding state inside the GeoJSON
@@ -138,7 +138,7 @@ for (var i = 0; i < data.length; i++) {
 		if (dataState == jsonState) {
 
 		// Copy the data value into the JSON
-		json.features[j].properties.visited = dataValue; 
+		json.features[j].properties.visited = dataValue;
 
 		// Stop looking through the JSON
 		break;
@@ -259,7 +259,7 @@ for (var i = 0; i < data.length; i++) {
           button.text("Play");
         } else {
           moving = true;
-          timer = setInterval(update, 1000);          
+          timer = setInterval(update, 1000);
           button.text("Pause");
         }
         console.log("Slider moving: " + moving);

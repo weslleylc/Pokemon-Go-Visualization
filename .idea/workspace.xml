@@ -4,8 +4,7 @@
     <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InteractiveMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/InteractiveMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/statePop.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/statePop.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/correlation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InteractiveMapColorivel.html" beforeDir="false" afterPath="$PROJECT_DIR$/InteractiveMapColorivel.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,23 +19,24 @@
     <session id="-1518043072">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="1" />
+          <entry key="html" value="2" />
           <entry key="js" value="1" />
           <entry key="json" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="1" />
+          <entry key="HTML" value="2" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1" />
         </counts>
@@ -44,14 +44,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="43" />
-          <entry key="html" value="1772" />
+          <entry key="html" value="1785" />
           <entry key="js" value="407" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="43" />
-          <entry key="HTML" value="1772" />
+          <entry key="HTML" value="1785" />
           <entry key="JavaScript" value="407" />
         </counts>
       </usages-collector>
@@ -59,16 +59,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
+            <state relative-caret-position="184">
+              <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/us-10m.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="166">
@@ -129,6 +129,9 @@
       <find>us</find>
       <find>10m</find>
       <find>tran</find>
+      <find>us-</find>
+      <find>state</find>
+      <find>id</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,6 +143,7 @@
         <option value="$PROJECT_DIR$/d3.slider.css" />
         <option value="$PROJECT_DIR$/d3.slider.js" />
         <option value="$PROJECT_DIR$/InteractiveMap.html" />
+        <option value="$PROJECT_DIR$/InteractiveMapColorivel.html" />
       </list>
     </option>
   </component>
@@ -161,7 +165,7 @@
     <option name="height" value="735" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -176,7 +180,17 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="Pokemon-Go-Visualization" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,12 +224,12 @@
       <updated>1543577910636</updated>
       <workItem from="1543577911883" duration="22785000" />
       <workItem from="1543690535026" duration="1135000" />
-      <workItem from="1543698077540" duration="2468000" />
+      <workItem from="1543698077540" duration="3574000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26388000" />
+    <option name="totallyTimeSpent" value="27494000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -232,12 +246,16 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,13 +265,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/d3.slider.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2001">
-          <caret line="87" selection-start-line="87" selection-end-line="87" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/d3.slider.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -264,10 +275,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
+    <entry file="file://$PROJECT_DIR$/d3.slider.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="149" column="58" lean-forward="true" selection-start-line="149" selection-start-column="58" selection-end-line="149" selection-end-column="58" />
+        <state relative-caret-position="2001">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InteractiveMapColorivel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="167" lean-forward="true" selection-start-line="122" selection-start-column="26" selection-end-line="283" />
         </state>
       </provider>
     </entry>
@@ -275,6 +293,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="166">
           <caret column="237786" selection-start-column="237784" selection-end-column="237786" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
         </state>
       </provider>
     </entry>
