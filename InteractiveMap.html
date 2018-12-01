@@ -213,7 +213,7 @@
     d3.select('#slider3').call(myslider);
 
     function update(){
-        console.log(actualDate);
+        //console.log(actualDate);
         actualDate = actualDate + step;
 
         var newData = _(site_data).filter( function(site) {
@@ -255,6 +255,15 @@
         defaultDate: startDate,
         minDate: startDate,
         maxDate: endDate
+    });
+
+    $("#datetimepicker5").on("dp.change", function (e) {
+        actualDate = $('#datetimepicker5').data("DateTimePicker").date().unix()*1000;
+        var newData = _(site_data).filter( function(site) {
+            return site.created_at < actualDate && site.created_at > actualDate-step;
+        });
+        displaySites(newData);
+        myslider.value(actualDate);
     });
 </script>
 </body>
