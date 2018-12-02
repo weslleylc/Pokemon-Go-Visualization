@@ -40,18 +40,6 @@
     }
 
     var ind = 1;
-    var scalas = {
-        1: d3.scale.linear()  // yScale is height of graphic
-            .domain([0, d3.max(dataset, function(d) {
-                return d[1];  // input domain
-            })])
-            .range([canvas_height - padding, padding]);
-        2: d3.scale.linear()  // yScale is height of graphic
-            .domain([0, d3.max(dataset, function(d) {
-                return d[2];  // input domain
-            })])
-            .range([canvas_height - padding, padding]);
-    };
     // var numDataPoints = 15;  // Number of dummy data points
     // var maxRange = Math.random() * 1000;  // Max range of new values
     // for(var i=0; i<numDataPoints; i++) {
@@ -74,7 +62,7 @@
 
     var yScale = d3.scale.linear()  // yScale is height of graphic
         .domain([0, d3.max(dataset, function(d) {
-            return d[1];  // input domain
+            return d[ind];  // input domain
         })])
         .range([canvas_height - padding, padding]);  // remember y starts on top going down so we flip
 
@@ -105,7 +93,7 @@
             return xScale(d[0]);  // Circle's X
         })
         .attr("cy", function(d) {  // Circle's Y
-            return yScale(d[1]);
+            return yScale(d[ind]);
         })
         .attr("r", 2);  // radius
 
@@ -124,20 +112,24 @@
     // On click, update with new data
     d3.select("h4")
         .on("click", function() {
-            var numValues = dataset.length;  // Get original dataset's length
-            var maxRange = Math.random() * 1000;  // Get max range of new values
-            dataset = [];  // Initialize empty array
-            for(var i=0; i<numValues; i++) {
-                var newNumber1 = Math.floor(Math.random() * maxRange);  // Random int for x
-                var newNumber2 = Math.floor(Math.random() * maxRange);  // Random int for y
-                dataset.push([newNumber1, newNumber2]);  // Add new numbers to array
-            }
+            if (ind == 1)
+                ind = 2;
+            else
+                ind = 1;
+            // var numValues = dataset.length;  // Get original dataset's length
+            // var maxRange = Math.random() * 1000;  // Get max range of new values
+            // dataset = [];  // Initialize empty array
+            // for(var i=0; i<numValues; i++) {
+            //     var newNumber1 = Math.floor(Math.random() * maxRange);  // Random int for x
+            //     var newNumber2 = Math.floor(Math.random() * maxRange);  // Random int for y
+            //     dataset.push([newNumber1, newNumber2]);  // Add new numbers to array
+            // }
 
             // Update scale domains
             xScale.domain([0, d3.max(dataset, function(d) {
                 return d[0]; })]);
             yScale.domain([0, d3.max(dataset, function(d) {
-                return d[1]; })]);
+                return d[ind]; })]);
 
             // Update circles
             svg.selectAll("circle")
@@ -157,7 +149,7 @@
                     return xScale(d[0]);  // Circle's X
                 })
                 .attr("cy", function(d) {
-                    return yScale(d[1]);  // Circle's Y
+                    return yScale(d[ind]);  // Circle's Y
                 })
                 .each("end", function() {  // End animation
                     d3.select(this)  // 'this' means the current element
