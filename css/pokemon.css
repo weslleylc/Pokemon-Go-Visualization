@@ -48,3 +48,13 @@
 	background-image: url(https://github.com/weslleylc/Pokemon-Go-Visualization/blob/master/img/team/3.jpg);
 
 }
+
+
+.card {
+        width: 225px;
+        height: 225px;
+        background: url("img/team/1.jpg") no-repeat;
+    }
+    .card:hover {
+        background: url("img/team/4.jpg") no-repeat;
+    }
