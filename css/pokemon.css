@@ -12,3 +12,49 @@
     width: 100%;
     height: 100%;
 }
+
+
+#containerFig {
+  display: inline-block;
+  position: relative;
+}
+
+#containerFig figcaption {
+  position: absolute;
+  top: 150px;
+  right: 40px;
+  font-size: 40px;
+  color: yellow;
+  text-shadow: 0px 0px 5px black;
+}
+
+
+#wes:hover{
+	background-image: url(img/team/5.jpg);
+}
+
+#marcelo:hover{
+	background-image: url(img/team/6.jpg);
+}
+
+#allison{
+	width: 100%;
+	height: 100px;
+	background-image: url(https://github.com/weslleylc/Pokemon-Go-Visualization/blob/master/img/team/1.jpg);
+}
+
+
+#allison:hover{
+	background-image: url(https://github.com/weslleylc/Pokemon-Go-Visualization/blob/master/img/team/3.jpg);
+
+}
+
+
+.card {
+        width: 225px;
+        height: 225px;
+        background: url("img/team/1.jpg") no-repeat;
+    }
+    .card:hover {
+        background: url("img/team/4.jpg") no-repeat;
+    }
