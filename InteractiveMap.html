@@ -3,6 +3,7 @@
     <title>D3 Mapping Timeline</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="d3.slider.css" />
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <style>
         :root{
             --button-height: 3rem;
@@ -172,6 +173,14 @@
             margin: 0;
         }
 
+        .clockText{
+            font-family:'Bungee', sans-serif;
+            font-size: 14px;
+        }
+
+
+
+
     </style>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
@@ -182,23 +191,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
     <script src="d3.slider.js"></script>
 </head>
 
 
 <body>
-
 <div>
     <div class="container" id="time-container">
         <div class="row">
             <div class='col-sm-6'>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker5'>
-                        <input type='text' class="form-control" />
-                        <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                            <input type='text' class="form-control clockText"  />
+                            <span class="input-group-addon clockText">
+                                <span class="glyphicon glyphicon-calendar clockText"></span>
+                            </span>
                     </div>
                 </div>
             </div>
@@ -206,10 +213,10 @@
     </div>
         <button class="retro-button" id="play-button">Start</button>
         <button class="retro-button">Select</button>
-        <button class="retro-button red-button"> A </button>
-        <button class="retro-button yellow-button"> B </button>
-        <button class="retro-button blue-button"> X </button>
-        <button class="retro-button green-button"> Y </button>
+        <button class="retro-button red-button"> População </button>
+        <button class="retro-button yellow-button"> Outro1 </button>
+        <button class="retro-button blue-button"> Outro2 </button>
+        <button class="retro-button green-button"> Outro3 </button>
     <div id="slider3"></div>
 </div>
 
