@@ -214,8 +214,8 @@
         <button class="retro-button" id="play-button">Start</button>
         <button class="retro-button" id="clear-button">Clear</button>
         <button class="retro-button red-button" id="pop-button"> População </button>
-        <button class="retro-button yellow-button" > Outro1 </button>
-        <button class="retro-button blue-button" id="idh-button"> Outro2 </button>
+        <button class="retro-button yellow-button" id="idh-button"> IDH </button>
+        <button class="retro-button blue-button" id="connect-button"> Connect Speed </button>
         <button class="retro-button green-button"> Outro3 </button>
     <div id="slider3"></div>
 </div>
@@ -229,9 +229,16 @@
     var mapPath = "https://raw.githubusercontent.com/weslleylc/Pokemon-Go-Visualization/master/data/us-10m.json";
 
     var popById = d3.map();
+    var idhById = d3.map();
+    var conById = d3.map();
 
 
-    d3.csv("data/stateSocialData.csv").row(function(d) { popById.set(+d.STATE, +d.popSize) }).get(function(){});
+    d3.csv("data/stateSocialData.csv").row(function(d) {
+        popById.set(+d.STATE, +d.popSize);
+        idhById.set(+d.STATE, +d.idh);
+        conById.set(+d.STATE, +d.netSpeed);
+        })
+        .get(function(){});
     console.log(popById);
     // Promise.all(promises).then(ready);
 
@@ -258,8 +265,12 @@
         .domain(colorDomain)
         .range(["rgb(255,255,255)","rgb(255,255,255)"]);
 
+    var colorYellow = d3.scale.linear()
+        .domain([0.86, 0.95])
+        .range(["rgb(255,255,255)","rgb(173,168,69)"]);
+
     var colorBlue = d3.scale.linear()
-        .domain(colorDomain)
+        .domain([23, 55])
         .range(["rgb(255,255,255)","rgb(69,173,168)"]);
 
     var colorRed = d3.scale.linear()
@@ -297,7 +308,7 @@
             })
             .attr("d", path)
             .append("title") // Tooltip
-            .text(function(d) { return d.rate + "%"; });
+            .text(function(d) { return mapper.get(d.id); });
         }
         $("#clear-button")
             .on("click", function () {
@@ -306,6 +317,14 @@
         $("#pop-button")
             .on("click", function () {
                 colorMap(colorRed,popById);
+            });
+        $("#idh-button")
+            .on("click", function () {
+                colorMap(colorYellow,idhById);
+            });
+        $("#connect-button")
+            .on("click", function () {
+                colorMap(colorBlue,conById);
             });
 
         // colorMap(colorBlue,popById);
