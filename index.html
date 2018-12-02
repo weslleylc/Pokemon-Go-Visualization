@@ -42,19 +42,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Parte 1</a>
+              <a class="nav-link js-scroll-trigger" href="#init">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Parte 2</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">Parte 2</a>
+              <a class="nav-link js-scroll-trigger" href="#about">História</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#team">Equipe</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">Contato</a>
             </li>
           </ul>
         </div>
@@ -62,11 +59,13 @@
     </nav>
 
     <!-- Header -->
-    <header class="masthead">
+    <header class="masthead"  id="init" >
       <div class="container">
         <div class="intro-text">
+        <!--
           <div class="intro-lead-in">Bem vindo ao mundo Pokemon!</div>
-          <div class="intro-heading text-uppercase">temos que pegar</div>
+          <div class="intro-heading text-uppercase">temos que visualizar</div>
+         -->
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about">Começar</a>
         </div>
       </div>
@@ -129,8 +128,15 @@
                 </div>
               </li>
               <li>
-                <div class="timeline-image">
+                <div class="timeline-image portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                    <div class="rounded-circle portfolio-hover">
+                      <div class="portfolio-hover-content">
+                        <i class="fas fa-plus fa-3x" ></i>
+                      </div>
+                    </div>
                   <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
+                  </a>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -143,8 +149,15 @@
                 </div>
               </li>
               <li class="timeline-inverted">
-                <div class="timeline-image">
+                 <div class="timeline-image portfolio-item">
+                  <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                    <div class="rounded-circle portfolio-hover">
+                      <div class="portfolio-hover-content">
+                        <i class="fas fa-plus fa-3x" ></i>
+                      </div>
+                    </div>
                   <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
+                  </a>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -288,39 +301,6 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Clients -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/envato.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/designmodo.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/themeforest.jpg" alt="">
-            </a>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <a href="#">
-              <img class="img-fluid d-block mx-auto" src="img/logos/creative-market.jpg" alt="">
-            </a>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -329,8 +309,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h2 class="section-heading text-uppercase">Contate-nos</h2>
+            <h2 class="section-heading text-uppercase">Made sua menssagem, que a gente lê</h2>
           </div>
         </div>
         <div class="row">
@@ -339,28 +319,28 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name.">
+                    <input class="form-control" id="name" type="text" placeholder="Nome *" required="required" data-validation-required-message="Por favor, informe seu nome.">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your email address.">
+                    <input class="form-control" id="email" type="email" placeholder="Email *" required="required" data-validation-required-message="Por favor, informe seu endereço">
                     <p class="help-block text-danger"></p>
                   </div>
                   <div class="form-group">
-                    <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number.">
+                    <input class="form-control" id="phone" type="tel" placeholder="Telefone *" required="required" data-validation-required-message="Por favor, informe com seu telefone.">
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <textarea class="form-control" id="message" placeholder="Your Message *" required="required" data-validation-required-message="Please enter a message."></textarea>
+                    <textarea class="form-control" id="message" placeholder="Menssagem *" required="required" data-validation-required-message="Por favor, informe sua mensagem."></textarea>
                     <p class="help-block text-danger"></p>
                   </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="col-lg-12 text-center">
                   <div id="success"></div>
-                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                  <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Enviar Menssagem</button>
                 </div>
               </div>
             </form>
@@ -374,36 +354,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <span class="copyright">Copyright &copy; Your Website 2018</span>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fab fa-linkedin-in"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
+            <span class="copyright">Copyright &copy; PokemonVis 2018</span>
           </div>
         </div>
       </div>
@@ -538,74 +489,6 @@
                     <li>Date: January 2017</li>
                     <li>Client: Lines</li>
                     <li>Category: Branding</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 5 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Southwest</li>
-                    <li>Category: Website Design</li>
-                  </ul>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
-                    Close Project</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal 6 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Project Name</h2>
-                  <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                  <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                  <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                  <ul class="list-inline">
-                    <li>Date: January 2017</li>
-                    <li>Client: Window</li>
-                    <li>Category: Photography</li>
                   </ul>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
