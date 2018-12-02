@@ -9,11 +9,11 @@ import pandas as pd
 import numpy as np
 
 
-df = pd.read_csv(data_folder/'pokemon_appears_US.csv', ',', engine='python')
+df = pd.read_csv('pokemon_appears_US.csv', ',', engine='python')
 if df.columns[0] == 'Unnamed: 0':
     df = df.drop([df.columns[0]],axis=1)
     
-types = pd.read_csv(data_folder/'pokemon_list.csv', ',', engine='python')
+types = pd.read_csv('pokemon_list.csv', ',', engine='python')
 if types.columns[0] == 'Unnamed: 0.1':
     types = types.drop([types.columns[0]],axis=1)
 
