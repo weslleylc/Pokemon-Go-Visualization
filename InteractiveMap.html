@@ -212,10 +212,10 @@
         </div>
     </div>
         <button class="retro-button" id="play-button">Start</button>
-        <button class="retro-button">Clear</button>
-        <button class="retro-button red-button"> População </button>
-        <button class="retro-button yellow-button"> Outro1 </button>
-        <button class="retro-button blue-button"> Outro2 </button>
+        <button class="retro-button" id="clear-button">Clear</button>
+        <button class="retro-button red-button" id="pop-button"> População </button>
+        <button class="retro-button yellow-button" > Outro1 </button>
+        <button class="retro-button blue-button" id="idh-button"> Outro2 </button>
         <button class="retro-button green-button"> Outro3 </button>
     <div id="slider3"></div>
 </div>
@@ -254,6 +254,10 @@
     var format = d3.time.format("%Y-%m-%dT%H:%M:%S");
 
     colorDomain = [500000,20000000];
+    var colorWhite = d3.scale.linear()
+        .domain(colorDomain)
+        .range(["rgb(255,255,255)","rgb(255,255,255)"]);
+
     var colorBlue = d3.scale.linear()
         .domain(colorDomain)
         .range(["rgb(255,255,255)","rgb(69,173,168)"]);
@@ -279,20 +283,32 @@
             .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
             .attr("d", path)
             .attr("class", "state-boundary");
-
+        function colorMap(colorScale, mapper){
         svg.append("g")
             .attr("class", "counties")
             .selectAll("path")
             // .data(topojson.feature(us, us.objects.counties).features)
             .data(topojson.feature(us, us.objects.states).features)
             .enter().append("path")
+            .attr("id", "colored-path")
             .attr("style", function(d) {
                 //console.log(color(popById.get(d.id)));
-                return "fill:"+colorRed(popById.get(d.id));
+                return "fill:"+colorScale(mapper.get(d.id));
             })
             .attr("d", path)
             .append("title") // Tooltip
             .text(function(d) { return d.rate + "%"; });
+        }
+        $("#clear-button")
+            .on("click", function () {
+                colorMap(colorWhite,popById);
+            });
+        $("#pop-button")
+            .on("click", function () {
+                colorMap(colorRed,popById);
+            });
+
+        // colorMap(colorBlue,popById);
 
         d3.csv("data/pokemon_appears_US.csv")
             .row(function(d) {
