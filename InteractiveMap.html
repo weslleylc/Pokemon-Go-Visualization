@@ -212,11 +212,11 @@
         </div>
     </div>
         <button class="retro-button" id="play-button">Start</button>
-        <button class="retro-button" id="clear-button">Clear</button>
         <button class="retro-button red-button" id="pop-button"> População </button>
         <button class="retro-button yellow-button" id="idh-button"> IDH </button>
-        <button class="retro-button blue-button" id="connect-button"> Net Speed </button>
-        <button class="retro-button green-button"> Outro3 </button>
+        <button class="retro-button blue-button" id="connect-button"> Velocidade Net </button>
+        <button class="retro-button green-button" id="une-button"> Desemprego </button>
+    <button class="retro-button" id="clear-button">Limpar</button>
     <div id="slider3"></div>
 </div>
 
@@ -231,12 +231,14 @@
     var popById = d3.map();
     var idhById = d3.map();
     var conById = d3.map();
+    var uneById = d3.map();
 
 
     d3.csv("data/stateSocialData.csv").row(function(d) {
         popById.set(+d.STATE, +d.popSize);
         idhById.set(+d.STATE, +d.idh);
         conById.set(+d.STATE, +d.netSpeed);
+        uneById.set(+d.STATE, +d.uneployment);
         })
         .get(function(){});
     console.log(popById);
@@ -276,6 +278,10 @@
     var colorRed = d3.scale.linear()
         .domain(colorDomain)
         .range(["rgb(255,200,200)","rgb(200,70,70)"]);
+
+    var colorGreen = d3.scale.linear()
+        .domain([2, 5.5])
+        .range(["rgb(255,200,200)","rgb(70,200,70)"]);
 
     d3.json(mapPath, function(error, us) {
         if (error) return console.error(error);
@@ -325,6 +331,10 @@
         $("#connect-button")
             .on("click", function () {
                 colorMap(colorBlue,conById);
+            });
+        $("#une-button")
+            .on("click", function () {
+                colorMap(colorGreen,uneById);
             });
 
         // colorMap(colorBlue,popById);
