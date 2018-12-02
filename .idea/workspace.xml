@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InteractiveMap.html" beforeDir="false" afterPath="$PROJECT_DIR$/InteractiveMap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/stateSocialData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/stateSocialData.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/correlation.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/correlation.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,14 +42,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="43" />
-          <entry key="html" value="3804" />
+          <entry key="html" value="3807" />
           <entry key="js" value="407" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="43" />
-          <entry key="HTML" value="3804" />
+          <entry key="HTML" value="3807" />
           <entry key="JavaScript" value="407" />
         </counts>
       </usages-collector>
@@ -63,8 +60,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="304" column="44" selection-start-line="304" selection-start-column="38" selection-end-line="304" selection-end-column="44" />
+            <state relative-caret-position="230">
+              <caret line="394" column="29" selection-start-line="394" selection-start-column="29" selection-end-line="394" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -242,12 +239,12 @@
       <updated>1543577910636</updated>
       <workItem from="1543577911883" duration="22785000" />
       <workItem from="1543690535026" duration="1135000" />
-      <workItem from="1543698077540" duration="18765000" />
+      <workItem from="1543698077540" duration="18994000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42685000" />
+    <option name="totallyTimeSpent" value="42914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -326,8 +323,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/InteractiveMap.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="304" column="44" selection-start-line="304" selection-start-column="38" selection-end-line="304" selection-end-column="44" />
+        <state relative-caret-position="230">
+          <caret line="394" column="29" selection-start-line="394" selection-start-column="29" selection-end-line="394" selection-end-column="29" />
         </state>
       </provider>
     </entry>
