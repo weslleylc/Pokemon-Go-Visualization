@@ -157,8 +157,8 @@
 
                             return "data/figures/"+Math.floor(Math.random() * 151)+".png"
                         })
-                        .attr("width", size)
-                        .attr("height", size);  // radius
+                        .attr("width", size*2)
+                        .attr("height", size*2);  // radius
                 })
                 .delay(function(d, i) {
                     return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
