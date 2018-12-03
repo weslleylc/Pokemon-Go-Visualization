@@ -19,14 +19,25 @@
         font-family: sans-serif;
         font-size: 11px;
     }
+
+    #scatter-plot {
+        position:relative;
+        top: 0px;
+        left: 50px;
+        padding-right: 26px;
+        border-radius: 3px;
+        margin: 0;
+    }
+
+
 </style>
 <!-- End CSS (Styling) -->
 
 <body>
 <h2>D3 Scatterplot </h2>
 <p>This is a data visualization using transitions with a scatterplot</p>
-<h4>Click on this text to update chart with new values</h4>
-<h3></h3>
+<button id="button-change">Click me</button>
+<div id="scatter-plot"></div>
 
 <!-- Begin D3 Javascript -->
 <script type="text/javascript">
@@ -49,10 +60,10 @@
     // }
 
     // Setup settings for graphic
-    var canvas_width = 500;
-    var canvas_height = 300;
-    var padding = 30;  // for chart edges
-
+    var canvas_width = 960;
+    var canvas_height = 600;
+    var padding = 50;  // for chart edges
+    var size = 20;
     // Create scale functions
     var xScale = d3.scale.linear()  // xScale is width of graphic
         .domain([0, d3.max(dataset, function(d) {
@@ -79,23 +90,27 @@
         .ticks(5);
 
     // Create SVG element
-    var svg = d3.select("h3")  // This is where we put our vis
+    var svg = d3.select("#scatter-plot")  // This is where we put our vis
         .append("svg")
         .attr("width", canvas_width)
-        .attr("height", canvas_height)
+        .attr("height", canvas_height);
 
     // Create Circles
-    svg.selectAll("circle")
+
+    svg.selectAll(".pokeball")
         .data(dataset)
         .enter()
-        .append("circle")  // Add circle svg
-        .attr("cx", function(d) {
-            return xScale(d[0]);  // Circle's X
+        .append("'svg:image")  // Add circle svg
+        .attr('class','pokeball')
+        .attr("href",'data/figures/pokeball.png')
+        .attr("x", function(d) {
+            return xScale(d[0])-size/2;  // Circle's X
         })
-        .attr("cy", function(d) {  // Circle's Y
-            return yScale(d[ind]);
+        .attr("y", function(d) {  // Circle's Y
+            return yScale(d[ind])-size/2;
         })
-        .attr("r", 2);  // radius
+        .attr("width", size)
+        .attr("height", size);  // radius
 
     // Add to X axis
     svg.append("g")
@@ -110,7 +125,7 @@
         .call(yAxis);
 
     // On click, update with new data
-    d3.select("h4")
+    d3.select("#button-change")
         .on("click", function() {
             if (ind == 1)
                 ind = 2;
@@ -132,31 +147,42 @@
                 return d[ind]; })]);
 
             // Update circles
-            svg.selectAll("circle")
+            svg.selectAll(".pokeball")
                 .data(dataset)  // Update with new data
                 .transition()  // Transition from old to new
                 .duration(1000)  // Length of animation
                 .each("start", function() {  // Start animation
                     d3.select(this)  // 'this' means the current element
-                        .attr("fill", "red")  // Change color
-                        .attr("r", 5);  // Change size
+                        .attr("href", function(d){
+
+                            return "data/figures/"+Math.floor(Math.random() * 151)+".png"
+                        })
+                        .attr("width", size)
+                        .attr("height", size);  // radius
                 })
                 .delay(function(d, i) {
                     return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
                 })
                 //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
-                .attr("cx", function(d) {
-                    return xScale(d[0]);  // Circle's X
+                .attr("x", function(d) {
+                    return xScale(d[0])-size;  // Circle's X
                 })
-                .attr("cy", function(d) {
-                    return yScale(d[ind]);  // Circle's Y
+                .attr("y", function(d) {
+                    return yScale(d[ind])-size;  // Circle's Y
                 })
                 .each("end", function() {  // End animation
                     d3.select(this)  // 'this' means the current element
                         .transition()
                         .duration(500)
-                        .attr("fill", "black")  // Change color
-                        .attr("r", 2);  // Change radius
+                        .attr("href",'data/figures/pokeball.png')
+                        .attr("x", function(d) {
+                            return xScale(d[0])-size/2;  // Circle's X
+                        })
+                        .attr("y", function(d) {  // Circle's Y
+                            return yScale(d[ind])-size/2;
+                        })
+                        .attr("width", size)
+                        .attr("height", size);  // radius
                 });
 
             // Update X Axis
