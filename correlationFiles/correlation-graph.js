@@ -138,7 +138,7 @@
         var textMainGray = '#635F5D';
 
         var color = d3.scaleOrdinal().range(['#1f78b4','#1f78b4']);
-        console.log("Teste"+ boldAlternating12);
+        // console.log("Teste"+ boldAlternating12);
         //
         // data-driven code starts here
         //
