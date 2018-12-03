@@ -47,7 +47,7 @@
     d3.csv('data/stateSocialData.csv', function (data) {
         
     for (var i = 0; i<data.length; i++){
-        dataset.push([+data[i].popSize, +data[i].totAp, +data[i].spawn_chance]);
+        dataset.push([+data[i].popSize, +data[i].totAp, +data[i].spawn_chance, data[i].name]);
     }
 
     var ind = 1;
@@ -110,7 +110,10 @@
             return yScale(d[ind])-size/2;
         })
         .attr("width", size)
-        .attr("height", size);  // radius
+        .attr("height", size)
+        .append("title")
+            .attr("class","stateName")// Tooltip
+            .text(function(d) { return d[3]});
 
     // Add to X axis
     svg.append("g")
@@ -154,11 +157,14 @@
                 .each("start", function() {  // Start animation
                     d3.select(this)  // 'this' means the current element
                         .attr("href", function(d){
-
                             return "data/figures/"+Math.floor(Math.random() * 151)+".png"
                         })
                         .attr("width", size*2)
-                        .attr("height", size*2);  // radius
+                        .attr("height", size*2)
+                        .select(".stateName")
+                        .text(function (d) {
+                            return d[3];
+                        });  // radius
                 })
                 .delay(function(d, i) {
                     return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
