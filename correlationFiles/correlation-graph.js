@@ -278,7 +278,7 @@
 
         var backgroundNode = node.append('circle').attr('r', function (d) {
             if (typeof fixedNodeSize !== 'undefined') {
-                return defaultRadius + 'px';
+                return defaultRadius+10 + 'px';
             }
             // return `${nodeRadiusScale(d.inDegree)}px`
             return nodeRadiusScale(d.linkWeightSum) + 'px';
@@ -286,7 +286,7 @@
 
         var nodeCircle = node.append('circle').attr('r', function (d) {
             if (typeof fixedNodeSize !== 'undefined') {
-                return defaultRadius + 'px';
+                return defaultRadius+10 + 'px';
             }
             // return `${nodeRadiusScale(d.inDegree)}px`
             return nodeRadiusScale(d.linkWeightSum) + 'px';
