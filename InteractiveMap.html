@@ -156,7 +156,7 @@
 
         #slider3 {
             margin: 20px 0 10px 20px;
-            width: 900px;
+            width: 680px;
         }
 
 
@@ -197,9 +197,9 @@
 
 <body>
 <div>
-    <div class="container" id="time-container">
+    <div class="" id="time-container">
         <div class="row">
-            <div class='col-sm-6'>
+            <div class='col-sm-3'>
                 <div class="form-group">
                     <div class='input-group date' id='datetimepicker5'>
                             <input type='text' class="form-control clockText"  />
@@ -222,8 +222,8 @@
 
 <script>
 
-    var width = 960,
-        height = 600;
+    var width = 720,
+        height = 500;
 
     //var mapPath = "/data/us-10m.json";
     var mapPath = "https://raw.githubusercontent.com/weslleylc/Pokemon-Go-Visualization/master/data/us-10m.json";
@@ -252,7 +252,7 @@
 
 
     var projection = d3.geo.albersUsa()
-        .scale(1280)
+        .scale(800)
         .translate([width / 2, height / 2]);
 
     var path = d3.geo.path()

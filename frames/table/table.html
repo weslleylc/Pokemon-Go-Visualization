@@ -26,16 +26,12 @@
 <body>
   <main role="main" class="container">
     <div class='row'>
-    	<div class="col-6">
     		<div id='temperature-chart' class="col-6">
 		    	<h4>  temperature </h4>
 			</div>
-		</div>	
-    	<div class="col-6">
     		<div id='windSpeed-chart' class="col-6">
 		  		<h4> windSpeed </h4>
-	    	</div>   
-    	</div>
+	    	</div>
 
     </div>
 	    
@@ -45,12 +41,12 @@
       </div>
 
 	</div>
-	<table class="table table-hover" id="dc-table-graph">
+	<table class="table table-hover " id="dc-table-graph">
         <thead>
             <tr class="header">
-                <th>DTG</th>
-                <th>Magnitude</th>
-                <th>Depth</th>
+                <th>Data</th>
+                <th>Temperatura</th>
+                <th>Velocidade dos ventos</th>
                 <th>Latitude</th>
                 <th>Longitude</th>
             </tr>
@@ -70,17 +66,17 @@
 	d3.csv("data/pokemonBar.csv").then(function (data) {
 		//2013-08-17T19:52:50.074 
 		var dtgFormat   = d3.timeParse("%Y-%m-%dT%H:%M:%S");
-		var magFormat   = d3.format(".1f");
+		var floatFormat   = d3.format(".2f");
 		var depthFormat = d3.format("d");
 
 		// format our data
 
 		data.forEach(function(d){
 			d.dtg   = dtgFormat(d.date.substr(0,19));
-			d.lat   = +d.latitude;
-			d.lon   = +d.longitude;
-			d.temperature   = magFormat(+d.temperature);
-			d.windSpeed = depthFormat(+d.windSpeed);			
+			d.lat   = floatFormat(+d.latitude);
+			d.lon   = floatFormat(+d.longitude);
+			d.temperature   = floatFormat(+d.temperature);
+			d.windSpeed = floatFormat(+d.windSpeed);			
 		});
 
 		
@@ -124,7 +120,7 @@
 		// x dimension domain: [0.5, 8]
 		//use a gap of 65, this number is very obscure. It seems to depend on the width of the chart and on the number of dimensions. It was found using trial and error.
 		//set elasticY to true
-		magnitudeChart.width(480)
+		magnitudeChart.width(380)
 			.height(150)
 			.x(d3.scaleLinear().domain([10,40]))
 			.dimension(magDimension)
@@ -139,7 +135,7 @@
 		// 480 x 150
 		// x dimension domain: [0, 100]
 
-		depthChart.width(480)
+		depthChart.width(380)
 			.height(150)
 			.x(d3.scaleLinear().domain([0,15]))
 			.dimension(depthDimension)
@@ -151,7 +147,7 @@
 		// Configure Time line graph
 		// height: 150
 		//x dimension: build the time scale from the data: d3.time.scale().domain(d3.extent(data, function(d) { return d.dtime; }))
-		timeChart.width(1080)
+		timeChart.width(760)
 			.height(150)
      	    .transitionDuration(500)
 			.dimension(hourDimension)
@@ -164,14 +160,14 @@
 			)
      	    .xAxis();
 
-		tableDataChart.width(960)
+		tableDataChart.width(760)
 			.height(800)
 			.dimension(dateDimension)
 			.group(function(d){
-	  	    	return "Eartquake Table";
+	  	    	return "";
 			})
 			.size(10)
-			.columns(['dtg','temperature','windSpeed','latitude','longitude'])
+			.columns(['dtg','temperature','windSpeed','lat','lon'])
      	    .sortBy(function(d){return d.dtg;})
      	    .order(d3.ascending);
 
