@@ -386,10 +386,10 @@
             })
             .attr("x", function(d) {
                 //console.log("TEste");
-                return projection([d.lng, d.lat])[0];
+                return projection([d.lng, d.lat])[0]-20;
             })
             .attr("y", function(d) {
-                return projection([d.lng, d.lat])[1];
+                return projection([d.lng, d.lat])[1]-20;
             })
             .attr("width", 40)
             .attr("height", 40);
