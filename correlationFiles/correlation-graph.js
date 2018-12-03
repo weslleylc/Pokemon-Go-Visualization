@@ -153,7 +153,7 @@
         var staticLinks = graph.edges;
         var linksAboveThreshold = [];
         staticLinks.forEach(function (d) {
-            if (d.weight > linkWeightThreshold) {
+            if (d.weight > -1) {
                 linksAboveThreshold.push(d);
             }
         });
@@ -516,7 +516,7 @@
             var defaultLinkOpacity = props.defaultLinkOpacity;
             var defaultLabelOpacity = props.defaultLabelOpacity;
 
-            d3.select(selector).append('input').attr('type', 'range').attr('min', 0).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '604px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
+            d3.select(selector).append('input').attr('type', 'range').attr('min', -1).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '604px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
 
             d3.select('#slider').on('input', function () {
                 update(+this.value);
