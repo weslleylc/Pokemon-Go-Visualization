@@ -8,12 +8,21 @@ data_folder = data_folder/'data'
 import pandas as pd
 import numpy as np
 
+from datetime import datetime
+import datetime
+def time(x):
+    t=x.split(':')
+    return int(t[0])*3600+int(t[1])*60+int(t[2])
 
-df = pd.read_csv('pokemon_appears_US.csv', ',', engine='python')
+
+
+
+
+df = pd.read_csv(data_folder/'pokemon_appears_US.csv', ',', engine='python')
 if df.columns[0] == 'Unnamed: 0':
     df = df.drop([df.columns[0]],axis=1)
     
-types = pd.read_csv('pokemon_list.csv', ',', engine='python')
+types = pd.read_csv(data_folder/'pokemon_list.csv', ',', engine='python')
 if types.columns[0] == 'Unnamed: 0.1':
     types = types.drop([types.columns[0]],axis=1)
 
@@ -36,4 +45,16 @@ dfFull[terrainType.columns]=terrainType
 dfFull=dfFull[~dfFull.isnull().any(axis=1)]
 dfFull[['closeToWater','urban','suburban','midurban','rural']]=dfFull[['closeToWater','urban','suburban','midurban','rural']].astype(bool)
 dfFull['weather']=dfFull['weather'].astype('str')
+f = "%Y-%m-%dT%H:%M:%S"
+#dfFull['appearedLocalTime']=dfFull['appearedLocalTime'].apply(lambda x: str(datetime.strptime(x, f)))
 corr=dfFull.corr()
+
+pk=dfFull[['pokemonId','latitude', 'longitude', 'appearedLocalTime','temperature', 'windSpeed']]
+pk['days']=dfFull['appearedLocalTime'].apply(lambda x:x.split('T')[0])
+pk['hour']=dfFull['appearedLocalTime'].apply(lambda x:x.split('T')[1])
+pk['seconds']=pk['hour'].apply(lambda x: time(x))
+pk=pk.groupby(['pokemonId','days']).mean().reset_index()
+pk['seconds']=pk['seconds'].apply(lambda x: str(datetime.timedelta(seconds=x)).split('.')[0])
+pk['date']=pk['days']+"T"+pk['seconds']
+pk.to_csv(data_folder/'pokemonBar.csv',sep=',')
+
