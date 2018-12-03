@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/scaterD3.html" beforeDir="false" afterPath="$PROJECT_DIR$/scaterD3.html" afterDir="false" />
-    </list>
+    <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -206,12 +204,12 @@
       <updated>1543577910636</updated>
       <workItem from="1543577911883" duration="22785000" />
       <workItem from="1543690535026" duration="1135000" />
-      <workItem from="1543698077540" duration="32108000" />
+      <workItem from="1543698077540" duration="32372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56028000" />
+    <option name="totallyTimeSpent" value="56292000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
