@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/correlationFiles/correlation-graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/correlationFiles/correlation-graph.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/correlationFiles/graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/correlationFiles/graph.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/correlationFiles/graph3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/correlationFiles/jLouvain.js" beforeDir="false" afterPath="$PROJECT_DIR$/correlationFiles/jLouvain.js" afterDir="false" />
-    </list>
+    <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -255,12 +249,12 @@
       <updated>1543577910636</updated>
       <workItem from="1543577911883" duration="22785000" />
       <workItem from="1543690535026" duration="1135000" />
-      <workItem from="1543698077540" duration="37858000" />
+      <workItem from="1543698077540" duration="38711000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61778000" />
+    <option name="totallyTimeSpent" value="62631000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
