@@ -356,7 +356,7 @@
         });
 
         d3.select('div#graph').append('div').attr('id', 'slider-container');
-        d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Threshold Correlação: "+0).attr('style','text-align:center');
+        d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Correlação: "+0).attr('style','text-align:center');
 
         // draw the slider control
         drawSliderControl({
