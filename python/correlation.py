@@ -49,7 +49,7 @@ f = "%Y-%m-%dT%H:%M:%S"
 #dfFull['appearedLocalTime']=dfFull['appearedLocalTime'].apply(lambda x: str(datetime.strptime(x, f)))
 corr=dfFull.corr()
 
-pk=dfFull[['pokemonId','latitude', 'longitude', 'appearedLocalTime','temperature', 'windSpeed']]
+pk=dfFull[['pokemonId','latitude', 'longitude', 'appearedLocalTime','temperature', 'windSpeed','population_density','windBearing']]
 pk['days']=dfFull['appearedLocalTime'].apply(lambda x:x.split('T')[0])
 pk['hour']=dfFull['appearedLocalTime'].apply(lambda x:x.split('T')[1])
 pk['seconds']=pk['hour'].apply(lambda x: time(x))
