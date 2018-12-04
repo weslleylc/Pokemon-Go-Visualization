@@ -356,7 +356,7 @@
         });
 
         d3.select('div#graph').append('div').attr('id', 'slider-container');
-        d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Correlação: "+0).attr('style','text-align:center');
+        d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Threshold Correlação: "+0).attr('style','text-align:center');
 
         // draw the slider control
         drawSliderControl({
@@ -530,7 +530,7 @@
                 // adjust the text on the range slider
                 d3.select('#nRadius-value').text(sliderValue);
                 d3.select('#nRadius').property('value', sliderValue);
-                d3.select('#labels').text("Correlação: "+ sliderValue);
+                d3.select('#labels').text("Threshold Correlação: "+ sliderValue);
                 d3.selectAll('.link').style('stroke-opacity', function (d) {
                     // console.log('d from slider update', d);
                     if (d.weight < sliderValue) {
