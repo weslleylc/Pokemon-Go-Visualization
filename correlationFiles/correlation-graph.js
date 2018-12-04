@@ -340,7 +340,7 @@
         // draw the help text for the main network plot
         drawText({
             selector: 'svg',
-            text: 'mouse over a node to see it\'s relationships. click the background to reset.',
+            text: 'Correlação entre algumas características socio-económicas e a quantidade de pokémons de um certo tipo',
             xOffset: 75,
             yOffset: 10
         });
@@ -352,7 +352,7 @@
             selector: '.sliderTextSVG',
             text: 'slide to increase the correlation threshold -->',
             xOffset: 115,
-            yOffset: 40
+            yOffset: 0
         });
 
         d3.select('div#graph').append('div').attr('id', 'slider-container');
@@ -517,7 +517,7 @@
             var defaultLinkOpacity = props.defaultLinkOpacity;
             var defaultLabelOpacity = props.defaultLabelOpacity;
 
-            d3.select(selector).append('input').attr('type', 'range').attr('min', -1).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '550px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
+            d3.select(selector).append('input').attr('type', 'range').attr('min', 0).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '550px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
 
             d3.select('#slider').on('input', function () {
                 update(+this.value);
