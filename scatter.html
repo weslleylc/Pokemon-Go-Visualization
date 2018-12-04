@@ -31,17 +31,43 @@
     }
 
 
+    .select-style {
+        border: 1px solid #ccc;
+        width: 400px;
+        border-radius: 3px;
+        overflow: hidden;
+        background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+    }
+
+    .select-style select {
+        padding: 5px 8px;
+        width: 130%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+    }
+
+    .select-style select:focus {
+        outline: none;
+    }
+
 </style>
 <!-- End CSS (Styling) -->
 
 <body>
+<div style="text-align: center">
 <h2>Correlação Pokémon x Dados sociais </h2>
 <p>As aparições dos pokemons são completamente aleatórias ou relacionadas a indicadores sociais?</p>
-<button id="button-change">Trocar indicador social</button>
-<p> <b>Dados:</b> </p>
-<p id="titulo">População x Aparições de Pokemon</p>
-<div id="scatter-plot"></div>
 
+<select id="inds" class="select-style">
+    <option value="1" selected="selected">População x Aparições de Pokemon</option>
+    <option value="2">População x Chance de oorrência</option>
+</select>
+
+<div id="scatter-plot"></div>
+</div>
 <!-- Begin D3 Javascript -->
 <script type="text/javascript">
 
@@ -130,88 +156,112 @@
         .attr("transform", "translate(" + padding +",0)")
         .call(yAxis);
 
+        svg.append("text")
+            .attr("class","yLabel")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -5)
+            .attr("x",0 - 320)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("QUANTIDADE POKEMON");
 
-    // On click, update with new data
-    d3.select("#button-change")
-        .on("click", function() {
-            if (ind == 1){
-                ind = 2;
-								d3.select("#titulo")
-									.text("População x Chance de ocorrência");
+        svg.append("text")
+            .attr("class","xLabel")
+            .attr("y", 570)
+            .attr("x",300)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("POPULAÇÃO ");
+        // On click, update with new data
+        ind = 1;
+        d3.select('#inds')
+        .on("change", function() {
+            var sect = document.getElementById("inds");
+            oldInd = ind;
+            ind = sect.options[sect.selectedIndex].value;
+            console.log(ind);
+            function update(ind) {
+                // var numValues = dataset.length;  // Get original dataset's length
+                // var maxRange = Math.random() * 1000;  // Get max range of new values
+                // dataset = [];  // Initialize empty array
+                // for(var i=0; i<numValues; i++) {
+                //     var newNumber1 = Math.floor(Math.random() * maxRange);  // Random int for x
+                //     var newNumber2 = Math.floor(Math.random() * maxRange);  // Random int for y
+                //     dataset.push([newNumber1, newNumber2]);  // Add new numbers to array
+                // }
+
+                // Update scale domains
+                xScale.domain([0, d3.max(dataset, function(d) {
+                    return d[0]; })]);
+                yScale.domain([0, d3.max(dataset, function(d) {
+                    return d[ind]; })]);
+
+                // Update circles
+                svg.selectAll(".pokeball")
+                    .data(dataset)  // Update with new data
+                    .transition()  // Transition from old to new
+                    .duration(1000)  // Length of animation
+                    .each("start", function() {  // Start animation
+                        d3.select(this)  // 'this' means the current element
+                            .attr("href", function(d){
+                                return "data/figures/"+Math.floor(Math.random() * 151)+".png"
+                            })
+                            .attr("width", size*2)
+                            .attr("height", size*2)
+                            .select(".stateName")
+                            .text(function (d) {
+                                return d[3];
+                            });  // radius
+                    })
+                    .delay(function(d, i) {
+                        return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
+                    })
+                    //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
+                    .attr("x", function(d) {
+                        return xScale(d[0])-size;  // Circle's X
+                    })
+                    .attr("y", function(d) {
+                        return yScale(d[ind])-size;  // Circle's Y
+                    })
+                    .each("end", function() {  // End animation
+                        d3.select(this)  // 'this' means the current element
+                            .transition()
+                            .duration(500)
+                            .attr("href",'data/figures/pokeball.png')
+                            .attr("x", function(d) {
+                                return xScale(d[0])-size/2;  // Circle's X
+                            })
+                            .attr("y", function(d) {  // Circle's Y
+                                return yScale(d[ind])-size/2;
+                            })
+                            .attr("width", size)
+                            .attr("height", size);  // radius
+                    });
+
+                // Update X Axis
+                svg.select(".x.axis")
+                    .transition()
+                    .duration(1000)
+                    .call(xAxis);
+
+                // Update Y Axis
+                svg.select(".y.axis")
+                    .transition()
+                    .duration(100)
+                    .call(yAxis);
+            }
+            if (oldInd!=ind && ind== 2){
+								d3.select(".yLabel")
+									.text("CHANCE DE OCORRÊNCIA");
+								update(ind);
 						}
-            else{
-                ind = 1;
-								d3.select("#titulo")
-									.text("População x Aparições de Pokemon");
+
+            if(oldInd!=ind && ind== 1){
+								d3.select(".yLabel")
+									.text("QUANTIDADE POKEMON");
+								update(ind);
 						}
-            // var numValues = dataset.length;  // Get original dataset's length
-            // var maxRange = Math.random() * 1000;  // Get max range of new values
-            // dataset = [];  // Initialize empty array
-            // for(var i=0; i<numValues; i++) {
-            //     var newNumber1 = Math.floor(Math.random() * maxRange);  // Random int for x
-            //     var newNumber2 = Math.floor(Math.random() * maxRange);  // Random int for y
-            //     dataset.push([newNumber1, newNumber2]);  // Add new numbers to array
-            // }
 
-            // Update scale domains
-            xScale.domain([0, d3.max(dataset, function(d) {
-                return d[0]; })]);
-            yScale.domain([0, d3.max(dataset, function(d) {
-                return d[ind]; })]);
-
-            // Update circles
-            svg.selectAll(".pokeball")
-                .data(dataset)  // Update with new data
-                .transition()  // Transition from old to new
-                .duration(1000)  // Length of animation
-                .each("start", function() {  // Start animation
-                    d3.select(this)  // 'this' means the current element
-                        .attr("href", function(d){
-                            return "data/figures/"+Math.floor(Math.random() * 151)+".png"
-                        })
-                        .attr("width", size*2)
-                        .attr("height", size*2)
-                        .select(".stateName")
-                        .text(function (d) {
-                            return d[3];
-                        });  // radius
-                })
-                .delay(function(d, i) {
-                    return i / dataset.length * 500;  // Dynamic delay (i.e. each item delays a little longer)
-                })
-                //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
-                .attr("x", function(d) {
-                    return xScale(d[0])-size;  // Circle's X
-                })
-                .attr("y", function(d) {
-                    return yScale(d[ind])-size;  // Circle's Y
-                })
-                .each("end", function() {  // End animation
-                    d3.select(this)  // 'this' means the current element
-                        .transition()
-                        .duration(500)
-                        .attr("href",'data/figures/pokeball.png')
-                        .attr("x", function(d) {
-                            return xScale(d[0])-size/2;  // Circle's X
-                        })
-                        .attr("y", function(d) {  // Circle's Y
-                            return yScale(d[ind])-size/2;
-                        })
-                        .attr("width", size)
-                        .attr("height", size);  // radius
-                });
-
-            // Update X Axis
-            svg.select(".x.axis")
-                .transition()
-                .duration(1000)
-                .call(xAxis);
-
-            // Update Y Axis
-            svg.select(".y.axis")
-                .transition()
-                .duration(100)
-                .call(yAxis);
         });
     });
 </script>

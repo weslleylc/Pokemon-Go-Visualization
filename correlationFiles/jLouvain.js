@@ -138,8 +138,8 @@
                     status.nodes_to_com[node] = i;
                     var deg = get_degree_for_node(graph, node);
 
-                    if (deg < 0)
-                        throw 'Bad graph type, use positive weights!';
+                    //if (deg < 0)
+                     //   throw 'Bad graph type, use positive weights!';
 
                     status.degrees[i] = deg;
                     status.gdegrees[node] = deg;

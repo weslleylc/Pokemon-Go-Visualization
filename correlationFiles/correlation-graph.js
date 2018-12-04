@@ -93,8 +93,8 @@
         console.log('width', width);
         console.log('height', height);
 
-        var linkWeightThreshold = 0.79;
-        var soloNodeLinkWeightThreshold = 0.1;
+        var linkWeightThreshold = 0.5;
+        var soloNodeLinkWeightThreshold = 0.2;
         var labelTextScalingFactor = 28;
 
         // separation between same-color circles
@@ -356,6 +356,7 @@
         });
 
         d3.select('div#graph').append('div').attr('id', 'slider-container');
+        d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Correlação: "+0).attr('style','text-align:center');
 
         // draw the slider control
         drawSliderControl({
@@ -517,7 +518,8 @@
             var defaultLinkOpacity = props.defaultLinkOpacity;
             var defaultLabelOpacity = props.defaultLabelOpacity;
 
-            d3.select(selector).append('input').attr('type', 'range').attr('min', 0).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '550px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
+            d3.select(selector).append('input').attr('type', 'range').attr('list',"tickmarks").attr('min', -1).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '550px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
+
 
             d3.select('#slider').on('input', function () {
                 update(+this.value);
@@ -528,7 +530,7 @@
                 // adjust the text on the range slider
                 d3.select('#nRadius-value').text(sliderValue);
                 d3.select('#nRadius').property('value', sliderValue);
-
+                d3.select('#labels').text("Correlação: "+ sliderValue);
                 d3.selectAll('.link').style('stroke-opacity', function (d) {
                     // console.log('d from slider update', d);
                     if (d.weight < sliderValue) {
