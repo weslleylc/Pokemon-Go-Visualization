@@ -118,7 +118,7 @@
 
         var svg = d3.select(selector).append('svg').attr('width', width).attr('height', height);
 
-        var backgroundRect = svg.append('rect').attr('width', width).attr('height', height).classed('background', true).style('fill', 'white');
+        var backgroundRect = svg.append('rect').attr('width', width).attr('height', height).classed('background', true).style('fill', 'white').style('opacity','0');
 
         var linkWidthScale = d3.scalePow().exponent(2).domain([0, 1]).range([2, 9]);
 
@@ -354,7 +354,7 @@
             xOffset: 115,
             yOffset: 0
         });
-
+        
         d3.select('div#graph').append('div').attr('id', 'slider-container');
         d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Correlação: "+0).attr('style','text-align:center');
 

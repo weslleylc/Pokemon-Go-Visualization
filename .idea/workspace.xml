@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dcee457f-cf05-4a70-97e0-8e7f86b736e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/correlationFiles/correlation-graph.js" beforeDir="false" afterPath="$PROJECT_DIR$/correlationFiles/correlation-graph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -64,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/correlationFiles/correlation-graph.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="532" column="53" selection-start-line="532" selection-start-column="53" selection-end-line="532" selection-end-column="53" />
+            <state relative-caret-position="174">
+              <caret line="356" column="8" selection-start-line="356" selection-start-column="8" selection-end-line="356" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -84,7 +84,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>-1</find>
-      <find>&lt;&lt;</find>
       <find>slide t</find>
       <find>sourceVariableLabel</find>
       <find>table</find>
@@ -113,6 +112,7 @@
       <find>correla</find>
       <find>background</find>
       <find>slider</find>
+      <find>&lt;&lt;</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;Start&quot;</replace>
@@ -221,12 +221,12 @@
       <workItem from="1543577911883" duration="22785000" />
       <workItem from="1543690535026" duration="1135000" />
       <workItem from="1543698077540" duration="45193000" />
-      <workItem from="1543928015669" duration="11060000" />
+      <workItem from="1543928015669" duration="11187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80173000" />
+    <option name="totallyTimeSpent" value="80300000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -350,8 +350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/correlationFiles/correlation-graph.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="532" column="53" selection-start-line="532" selection-start-column="53" selection-end-line="532" selection-end-column="53" />
+        <state relative-caret-position="174">
+          <caret line="356" column="8" selection-start-line="356" selection-start-column="8" selection-end-line="356" selection-end-column="8" />
         </state>
       </provider>
     </entry>
