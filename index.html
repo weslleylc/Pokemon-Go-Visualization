@@ -19,7 +19,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <!-- Custom styles for this template -->
    
 
@@ -214,6 +214,35 @@
         background: url("img/team/6.jpg") ;
     }
 
+    #containerFig {
+      display: inline-block;
+      position: relative;
+    }
+
+    #containerFig figcaption {
+      position: absolute;
+      top: 50px;
+      right: 200px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .containerfig {
+    position: relative;
+    text-align: center;
+    color: white;
+    }
+
+
+    /* Centered text */
+    .centered {
+        position: absolute;
+        top: 15%;
+        padding-left: 5%;
+        padding-right: 5%;
+        color: black;
+    }
+
 </style>
 
     <!-- Team -->
@@ -375,10 +404,16 @@
           </div>
           <div class="container">
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase">FIM</h2>
-            <p class="item-intro text-muted">"Obrigado por acompanhar nossa hitória."</p>
+            <h2 class="text-uppercase">O Mundo Pokemon</h2>
+            <p class="item-intro text-muted">"É hora de embarcar nessa aventura. Eles podem aparecer a qualquer momento e em qualquer lugar, quando você está andando no meio da rua, tomando um banho de mar ou no colégio assistindo aula. Mas não se preocupe, nós iremos te ajudar, montamos um mapa com a aparição dos monstrinhos durante 4 dias nos EUA, pra você ficar esperto e saber onde cada um deles normalmente está. Mas, será que essas aparições são realmente aleatórias?"</p>
             <div class="row">
               <div class="col-xl-12 mx-auto">
+                <div class="containerfig">
+                  <img src="img/characters/box.png"  style="width:100%;">
+                  <div class="centered" style="font-family: 'Press Start 2P', cursive;font-size: 13px;">No mapa a seguir podemos ver uma sequência de aparições entre os dias e as horas indicadas na região dos EUA, podemos apertar o botão START para iniciar o marcador de tempo e o <span style="color:grey">STOP</span> para pará-lo. Além disso podemos ver dados sociais no mapa ao mesmo tempo em que vemos onde os pokémons apareceram! Aperte no botão <span style="color:red">VERMELHO</span> para mostrar os dados relativos à população. No botão <span style="color:yellow">AMARELO</span> temos os dado sobre o IDH dos estados. <span style="color:blue">AZUL</span> é a velocidade da internet em cada estado e VERDE a quantidade total de monstrinhos que aparecem em cada estado. Ficou curioso quanto ao valor real? Então simplesmente deixe o mouse um tempinho em cima de um estado e com botão do índice que você quer observar pressionado. Ficou cansado de ver cores? Simplesmente limpe a tela com o botão <span style="color:grey">LIMPAR</span>.
+                  </div>
+               </div>
+                
                 <div class="modal-body">
                   
                   <div class=" text-center">
