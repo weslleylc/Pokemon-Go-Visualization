@@ -120,7 +120,7 @@
 
         var backgroundRect = svg.append('rect').attr('width', width).attr('height', height).classed('background', true).style('fill', 'white');
 
-        var linkWidthScale = d3.scalePow().exponent(2).domain([0, 1]).range([0, 5]);
+        var linkWidthScale = d3.scalePow().exponent(2).domain([0, 1]).range([2, 9]);
 
         // http://colorbrewer2.org/?type=qualitative&scheme=Paired&n=12
         var boldAlternating12 = ['#1f78b4', '#33a02c', '#e31a1c', '#ff7f00', '#6a3d9a', '#b15928', '#a6cee3', '#b2df8a', '#fb9a99', '#fdbf6f', '#cab2d6', '#ffff99'];
@@ -137,8 +137,8 @@
 
         var textMainGray = '#635F5D';
 
-        var color = d3.scaleOrdinal().range(boldAlternating12);
-
+        var color = d3.scaleOrdinal().range(['#1f78b4','#1f78b4']);
+        // console.log("Teste"+ boldAlternating12);
         //
         // data-driven code starts here
         //
@@ -153,7 +153,7 @@
         var staticLinks = graph.edges;
         var linksAboveThreshold = [];
         staticLinks.forEach(function (d) {
-            if (d.weight > -1) {
+            if (d.weight > linkWeightThreshold) {
                 linksAboveThreshold.push(d);
             }
         });
@@ -278,7 +278,7 @@
 
         var backgroundNode = node.append('circle').attr('r', function (d) {
             if (typeof fixedNodeSize !== 'undefined') {
-                return defaultRadius+10 + 'px';
+                return defaultRadius + 'px';
             }
             // return `${nodeRadiusScale(d.inDegree)}px`
             return nodeRadiusScale(d.linkWeightSum) + 'px';
@@ -286,13 +286,14 @@
 
         var nodeCircle = node.append('circle').attr('r', function (d) {
             if (typeof fixedNodeSize !== 'undefined') {
-                return defaultRadius+10 + 'px';
+                return defaultRadius + 'px';
             }
             // return `${nodeRadiusScale(d.inDegree)}px`
-            return nodeRadiusScale(d.linkWeightSum) + 'px';
-        }).on('mouseover', fade(0.1))
-        // .on('mouseout', fade(0.4))
-            .classed('mark', true);
+            return nodeRadiusScale(d.linkWeightSum)*2 + 'px';
+        });
+        //     .on('mouseover', fade(0.1))
+        // // .on('mouseout', fade(0.4))
+        //     .classed('mark', true);
 
         // draw labels
         var label = node.append('text').text(function (d) {
@@ -339,7 +340,7 @@
         // draw the help text for the main network plot
         drawText({
             selector: 'svg',
-            text: 'mouse over a node to see it\'s relationships. click the background to reset.',
+            text: 'Correlação entre algumas características socio-económicas e a quantidade de pokémons de um certo tipo',
             xOffset: 75,
             yOffset: 10
         });
@@ -351,7 +352,7 @@
             selector: '.sliderTextSVG',
             text: 'slide to increase the correlation threshold -->',
             xOffset: 115,
-            yOffset: 40
+            yOffset: 0
         });
 
         d3.select('div#graph').append('div').attr('id', 'slider-container');
@@ -516,7 +517,7 @@
             var defaultLinkOpacity = props.defaultLinkOpacity;
             var defaultLabelOpacity = props.defaultLabelOpacity;
 
-            d3.select(selector).append('input').attr('type', 'range').attr('min', -1).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '604px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
+            d3.select(selector).append('input').attr('type', 'range').attr('min', 0).attr('max', 1).attr('value', 0.356).attr('step', 0.001).style('top', '550px').style('left', '90px').style('height', '36px').style('width', '450px').style('position', 'fixed').attr('id', 'slider');
 
             d3.select('#slider').on('input', function () {
                 update(+this.value);

@@ -35,9 +35,11 @@
 <!-- End CSS (Styling) -->
 
 <body>
-<h2>D3 Scatterplot </h2>
-<p>This is a data visualization using transitions with a scatterplot</p>
-<button id="button-change">Click me</button>
+<h2>Correlação Pokémon x Dados sociais </h2>
+<p>As aparições dos pokemons são completamente aleatórias ou relacionadas a indicadores sociais?</p>
+<button id="button-change">Trocar indicador social</button>
+<p> <b>Dados:</b> </p>
+<p id="titulo">População x Aparições de Pokemon</p>
 <div id="scatter-plot"></div>
 
 <!-- Begin D3 Javascript -->
@@ -61,7 +63,7 @@
     // }
 
     // Setup settings for graphic
-    var canvas_width = 960;
+    var canvas_width = 700;
     var canvas_height = 600;
     var padding = 50;  // for chart edges
     var size = 20;
@@ -128,13 +130,20 @@
         .attr("transform", "translate(" + padding +",0)")
         .call(yAxis);
 
+
     // On click, update with new data
     d3.select("#button-change")
         .on("click", function() {
-            if (ind == 1)
+            if (ind == 1){
                 ind = 2;
-            else
+								d3.select("#titulo")
+									.text("População x Chance de ocorrência");
+						}
+            else{
                 ind = 1;
+								d3.select("#titulo")
+									.text("População x Aparições de Pokemon");
+						}
             // var numValues = dataset.length;  // Get original dataset's length
             // var maxRange = Math.random() * 1000;  // Get max range of new values
             // dataset = [];  // Initialize empty array

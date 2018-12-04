@@ -29,6 +29,7 @@ body {
 
 @media screen and (min-width: 480px) {
   .main-content {
+
     padding-right: 20px;
     padding-left: 20px;
     
@@ -50,18 +51,24 @@ body {
 }
 
 table {
-  font: 8px monospace;
+   margin-top: 100px;
+  font: 14px monospace;
   border-collapse: collapse;
   position: relative;
   left: 0px;
 }
 
-th {
-  border-bottom: 0px solid black;
-  cursor: pointer;
+tbody{
+  max-height: 300px;
+  display: grid;
+  overflow: auto
 }
 
-td, th {
+thead {
+ display: block;
+}
+
+td{
   padding-left: 3px;
   padding-right: 3px;
 }
