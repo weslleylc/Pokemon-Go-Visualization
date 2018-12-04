@@ -27,17 +27,16 @@
   <main role="main" class="container">
     <div class='row'>
     		<div id='temperature-chart' class="col-6">
-		    	<h4>  temperature </h4>
+		    	<h4>  Temperatura </h4>
 			</div>
     		<div id='windSpeed-chart' class="col-6">
-		  		<h4> windSpeed </h4>
+		  		<h4> Força dos ventos </h4>
 	    	</div>
-
     </div>
 	    
     <div class='row'>
       <div id='time-chart' class="single-col">
-         <h4> Events per hour </h4>
+         <h4> Eventos por hora </h4>
       </div>
 
 	</div>
@@ -128,7 +127,10 @@
 		    .transitionDuration(500)
 		    .centerBar(false)	
 			.gap(55)
-			.elasticY(true);
+			.elasticY(true)
+			.xAxisLabel("Temperatura")
+			.yAxisLabel("Ocorrências");
+
 
 
 		// Configure Depth bar graph
@@ -143,7 +145,10 @@
 		    .transitionDuration(500)
 		    .centerBar(false)	
 			.gap(1)
-			.elasticY(true);
+			.elasticY(true)
+			.xAxisLabel("Força dos ventos(Km)")
+			.yAxisLabel("Ocorrências");
+
 		// Configure Time line graph
 		// height: 150
 		//x dimension: build the time scale from the data: d3.time.scale().domain(d3.extent(data, function(d) { return d.dtime; }))
@@ -158,7 +163,10 @@
 				    return d.dtg; 
 				}))
 			)
+			.xAxisLabel("Dias/Horas")
+			.yAxisLabel("Ocorrências")
      	    .xAxis();
+
 
 		tableDataChart.width(760)
 			.height(800)
