@@ -135,7 +135,7 @@ function drawPictogramTable(props) {
 
             tableEnter
                 .attr('class', d => `${d.cl} ${d.align}`)
-                .text(d => d.head)
+                .text(d => (d.head.length != 0) ? d.head+'|' : d.head )
                 .on('click', d => {
                     console.log('d from click', d);
                     let ascending;

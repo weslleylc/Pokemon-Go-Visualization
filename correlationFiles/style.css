@@ -44,7 +44,6 @@ body {
 }
 
 .table-container {
-  
   overflow: auto;
   background-color: rgba(255,255,255,0.0);
   filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=1,startColorStr="#E6FFFFFF",endColorStr="#E6FFFFFF");
@@ -52,19 +51,24 @@ body {
 }
 
 table {
-   max-height: 50px;
+   margin-top: 100px;
   font: 14px monospace;
   border-collapse: collapse;
   position: relative;
   left: 0px;
 }
 
-th {
-  border-bottom: 0px solid black;
-  cursor: pointer;
+tbody{
+  max-height: 300px;
+  display: grid;
+  overflow: auto
 }
 
-td, th {
+thead {
+ display: block;
+}
+
+td{
   padding-left: 3px;
   padding-right: 3px;
 }
