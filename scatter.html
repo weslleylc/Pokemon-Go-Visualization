@@ -63,7 +63,11 @@
 
 <select id="inds" class="select-style">
     <option value="1" selected="selected">População x Aparições de Pokemon</option>
-    <option value="2">População x Chance de oorrência</option>
+    <option value="2">População x Chance de ocorrência</option>
+		<option value="3">IDH x Aparições de Pokemon</option>
+		<option value="4">IDH x Chance de ocorrência</option>
+		<option value="5">Vel. Internet x Aparições de Pokemon</option>
+		<option value="6">Vel. Internet x Chance de ocorrência</option>
 </select>
 
 <div id="scatter-plot"></div>
@@ -76,8 +80,10 @@
     d3.csv('data/stateSocialData.csv', function (data) {
         
     for (var i = 0; i<data.length; i++){
-        dataset.push([+data[i].popSize, +data[i].totAp, +data[i].spawn_chance, data[i].name]);
+        dataset.push([+data[i].popSize, +data[i].totAp, +data[i].spawn_chance, +data[i].idh, +data[i].netSpeed, data[i].name]);
     }
+		
+		var colIndex = {1:[0,1,"População","Aparições de Pokemon"], 2:[0,2,"População","Chance de ocorrência"], 3:[3,1,"IDH","Aparições de Pokemon"],4:[3,2,"IDH","Chance de ocorrência"], 5:[4,1,"Vel. Internet","Aparições de Pokemon"],6:[3,2,"Vel. Internet","Chance de ocorrência"]};
 
     var ind = 1;
     // var numDataPoints = 15;  // Number of dummy data points
@@ -163,7 +169,7 @@
             .attr("x",0 - 320)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
-            .text("QUANTIDADE POKEMON");
+            .text("Aparições de Pokemon");
 
         svg.append("text")
             .attr("class","xLabel")
@@ -171,7 +177,7 @@
             .attr("x",300)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
-            .text("POPULAÇÃO ");
+            .text("População");
         // On click, update with new data
         ind = 1;
         d3.select('#inds')
@@ -191,10 +197,29 @@
                 // }
 
                 // Update scale domains
-                xScale.domain([0, d3.max(dataset, function(d) {
-                    return d[0]; })]);
-                yScale.domain([0, d3.max(dataset, function(d) {
-                    return d[ind]; })]);
+                xScale.domain([
+										d3.min(dataset, 
+														function(d) {
+					                    return d[colIndex[ind][0]]; 
+														}), 
+										d3.max(dataset, 
+														function(d) {
+					                    return d[colIndex[ind][0]]; 
+														})]);
+                yScale.domain([
+										0,
+										//d3.min(dataset, 
+										//				function(d) {
+					          //         return d[colIndex[ind][1]]; 
+										//				}), 
+										d3.max(dataset, 
+														function(d) {
+					                    return d[colIndex[ind][1]]; 
+														})]);
+
+
+                //yScale.domain([0, d3.max(dataset, function(d) {
+                 //   return d[colIndex[ind][1]]; })]);
 
                 // Update circles
                 svg.selectAll(".pokeball")
@@ -210,7 +235,7 @@
                             .attr("height", size*2)
                             .select(".stateName")
                             .text(function (d) {
-                                return d[3];
+                                return d[5];
                             });  // radius
                     })
                     .delay(function(d, i) {
@@ -218,10 +243,10 @@
                     })
                     //.ease("linear")  // Transition easing - default 'variable' (i.e. has acceleration), also: 'circle', 'elastic', 'bounce', 'linear'
                     .attr("x", function(d) {
-                        return xScale(d[0])-size;  // Circle's X
+                        return xScale(d[colIndex[ind][0]])-size;  // Circle's X
                     })
                     .attr("y", function(d) {
-                        return yScale(d[ind])-size;  // Circle's Y
+                        return yScale(d[colIndex[ind][1]])-size;  // Circle's Y
                     })
                     .each("end", function() {  // End animation
                         d3.select(this)  // 'this' means the current element
@@ -229,10 +254,10 @@
                             .duration(500)
                             .attr("href",'data/figures/pokeball.png')
                             .attr("x", function(d) {
-                                return xScale(d[0])-size/2;  // Circle's X
+                                return xScale(d[colIndex[ind][0]])-size/2;  // Circle's X
                             })
                             .attr("y", function(d) {  // Circle's Y
-                                return yScale(d[ind])-size/2;
+                                return yScale(d[colIndex[ind][1]])-size/2;
                             })
                             .attr("width", size)
                             .attr("height", size);  // radius
@@ -250,15 +275,22 @@
                     .duration(100)
                     .call(yAxis);
             }
-            if (oldInd!=ind && ind== 2){
-								d3.select(".yLabel")
-									.text("CHANCE DE OCORRÊNCIA");
-								update(ind);
-						}
+            //if (oldInd!=ind && ind== 2){
+						//		d3.select(".yLabel")
+						//			.text("CHANCE DE OCORRÊNCIA");
+						//		update(ind);
+						//}
 
-            if(oldInd!=ind && ind== 1){
+            //if(oldInd!=ind && ind== 1){
+						//		d3.select(".yLabel")
+						//			.text("QUANTIDADE POKEMON");
+						//		update(ind);
+						//}
+						if(oldInd!=ind){
+								d3.select(".xLabel")
+									.text(colIndex[ind][2]);
 								d3.select(".yLabel")
-									.text("QUANTIDADE POKEMON");
+									.text(colIndex[ind][3]);
 								update(ind);
 						}
 
