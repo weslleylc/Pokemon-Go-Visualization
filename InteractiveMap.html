@@ -156,7 +156,7 @@
 
         #slider3 {
             margin: 20px 0 10px 20px;
-            width: 680px;
+            width: 910px;
         }
 
 
@@ -167,7 +167,7 @@
         #time-container {
             position:relative;
             top: 55px;
-            left: 510px;
+            left: 700px;
             padding-right: 26px;
             border-radius: 3px;
             margin: 0;
@@ -222,8 +222,8 @@
 
 <script>
 
-    var width = 720,
-        height = 500;
+    var width = 1000,
+        height = 700;
 
     //var mapPath = "/data/us-10m.json";
     var mapPath = "https://raw.githubusercontent.com/weslleylc/Pokemon-Go-Visualization/master/data/us-10m.json";
@@ -252,7 +252,7 @@
 
 
     var projection = d3.geo.albersUsa()
-        .scale(800)
+        .scale(1200)
         .translate([width / 2, height / 2]);
 
     var path = d3.geo.path()
