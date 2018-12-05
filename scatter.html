@@ -66,6 +66,8 @@
     <option value="2">População x Chance de ocorrência</option>
 		<option value="3">IDH x Aparições de Pokemon</option>
 		<option value="4">IDH x Chance de ocorrência</option>
+		<option value="5">Vel. Internet x Aparições de Pokemon</option>
+		<option value="6">Vel. Internet x Chance de ocorrência</option>
 </select>
 
 <div id="scatter-plot"></div>
@@ -78,10 +80,10 @@
     d3.csv('data/stateSocialData.csv', function (data) {
         
     for (var i = 0; i<data.length; i++){
-        dataset.push([+data[i].popSize, +data[i].totAp, +data[i].spawn_chance, +data[i].idh, data[i].name]);
+        dataset.push([+data[i].popSize, +data[i].totAp, +data[i].spawn_chance, +data[i].idh, +data[i].netSpeed, data[i].name]);
     }
 		
-		var colIndex = {1:[0,1,"População","Aparições de Pokemon"], 2:[0,2,"População","Chance de ocorrência"], 3:[3,1,"IDH","Aparições de Pokemon"],4:[3,2,"IDH","Chance de ocorrência"]};
+		var colIndex = {1:[0,1,"População","Aparições de Pokemon"], 2:[0,2,"População","Chance de ocorrência"], 3:[3,1,"IDH","Aparições de Pokemon"],4:[3,2,"IDH","Chance de ocorrência"], 5:[4,1,"Vel. Internet","Aparições de Pokemon"],6:[3,2,"Vel. Internet","Chance de ocorrência"]};
 
     var ind = 1;
     // var numDataPoints = 15;  // Number of dummy data points
@@ -93,8 +95,8 @@
     // }
 
     // Setup settings for graphic
-    var canvas_width = 700;
-    var canvas_height = 600;
+    var canvas_width = 1100;
+    var canvas_height = 800;
     var padding = 50;  // for chart edges
     var size = 20;
     // Create scale functions
@@ -164,18 +166,18 @@
             .attr("class","yLabel")
             .attr("transform", "rotate(-90)")
             .attr("y", -5)
-            .attr("x",0 - 320)
+            .attr("x",0 - 420)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
-            .text("QUANTIDADE POKEMON");
+            .text("Aparições de Pokemon");
 
         svg.append("text")
             .attr("class","xLabel")
-            .attr("y", 570)
-            .attr("x",300)
+            .attr("y", 770)
+            .attr("x",500)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
-            .text("POPULAÇÃO ");
+            .text("População");
         // On click, update with new data
         ind = 1;
         d3.select('#inds')
@@ -233,7 +235,7 @@
                             .attr("height", size*2)
                             .select(".stateName")
                             .text(function (d) {
-                                return d[4];
+                                return d[5];
                             });  // radius
                     })
                     .delay(function(d, i) {

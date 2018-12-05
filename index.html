@@ -19,7 +19,7 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <!-- Custom styles for this template -->
    
 
@@ -119,7 +119,7 @@
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h4>Parte 2</h4>
-                    <h4 class="subheading">Quero você MewTwoo!</h4>
+                    <h4 class="subheading">Quero você MewTwo!</h4>
                   </div>
                   <div class="timeline-body">
                     <p class="text-muted">Aonde será que os pokemons mais raros aparecem?Sera que aonde minha tia mora lá no interior, tem também?</p>
@@ -140,10 +140,10 @@
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h4>Parte 3</h4>
-                    <h4 class="subheading">Nossa que fome!</h4>
+                    <h4 class="subheading">Ainda não te encontrei. Mas chego lá!</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Vou almoçar agora, vamos? Quer saber vou ver se capturo uns pokemons no caminho.</p>
+                    <p class="text-muted">Que tal aprofundar um pouco mais o que você acabou de ver, mas de outra forma?</p>
                   </div>
                 </div>
               </li>
@@ -161,10 +161,10 @@
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h4>Parte 4</h4>
-                    <h4 class="subheading">Se eu trabalho?</h4>
+                    <h4 class="subheading">Nossa que fome!</h4>
                   </div>
                   <div class="timeline-body">
-                    <p class="text-muted">Quem tem um bom emprego é que é feliz, pois pode pagar por uma  internet boa e caçar muitos  pokemons.</p>
+                    <p class="text-muted">Vou almoçar agora, vamos? Quer saber vou ver se capturo uns pokemons no caminho.</p>
                   </div>
                 </div>
               </li>
@@ -214,6 +214,35 @@
         background: url("img/team/6.jpg") ;
     }
 
+    #containerFig {
+      display: inline-block;
+      position: relative;
+    }
+
+    #containerFig figcaption {
+      position: absolute;
+      top: 50px;
+      right: 200px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .containerfig {
+    position: relative;
+    text-align: center;
+    color: white;
+    }
+
+
+    /* Centered text */
+    .centered {
+        position: absolute;
+        top: 15%;
+        padding-left: 5%;
+        padding-right: 5%;
+        color: black;
+    }
+
 </style>
 
     <!-- Team -->
@@ -222,7 +251,7 @@
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">Conheça nosso time</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted"></h3>
           </div>
         </div>
         <div class="row">
@@ -375,14 +404,20 @@
           </div>
           <div class="container">
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase">FIM</h2>
-            <p class="item-intro text-muted">"Obrigado por acompanhar nossa hitória."</p>
+            <h2 class="text-uppercase">O Mundo Pokemon</h2>
+            <p class="item-intro text-muted">"É hora de embarcar nessa aventura. Eles podem aparecer a qualquer momento e em qualquer lugar, quando você está andando no meio da rua, tomando um banho de mar ou no colégio assistindo aula. Mas não se preocupe, nós iremos te ajudar, montamos um mapa com a aparição dos monstrinhos durante 4 dias nos EUA, pra você ficar esperto e saber onde cada um deles normalmente está. Mas, será que essas aparições são realmente aleatórias?"</p>
             <div class="row">
-              <div class="col-xl-12 mx-auto">
+              <div class="col-lg-12 mx-auto">
+                <div class="containerfig">
+                  <img src="img/characters/box.png"  style="width:100%;">
+                  <div class="centered" style="font-family: 'Press Start 2P', cursive;font-size: 13px;">No mapa a seguir podemos ver uma sequência de aparições entre os dias e as horas indicadas na região dos EUA, podemos apertar o botão START para iniciar o marcador de tempo e o <span style="color:grey">STOP</span> para pará-lo. Além disso podemos ver dados sociais no mapa ao mesmo tempo em que vemos onde os pokémons apareceram! Aperte no botão <span style="color:red">VERMELHO</span> para mostrar os dados relativos à população. No botão <span style="color:yellow">AMARELO</span> temos os dado sobre o IDH dos estados. <span style="color:blue">AZUL</span> é a velocidade da internet em cada estado e VERDE a quantidade total de monstrinhos que aparecem em cada estado. Ficou curioso quanto ao valor real? Então simplesmente deixe o mouse um tempinho em cima de um estado e com botão do índice que você quer observar pressionado. Ficou cansado de ver cores? Simplesmente limpe a tela com o botão <span style="color:grey">LIMPAR</span>.
+                  </div>
+               </div>
+                
                 <div class="modal-body">
                   
                   <div class=" text-center">
-                       <iframe src='InteractiveMap.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 760px;width: 780px;'></iframe>
+                       <iframe src='InteractiveMap.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 860px;width: 1100px;'></iframe>
                   </div>                      
                 </div>
               </div>
@@ -397,7 +432,9 @@
       </div>
     </div>
 
-<!-- Modal 2 -->
+
+
+    <!-- Modal 2 -->
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -408,17 +445,20 @@
           </div>
           <div class="container">
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase">Você Sabia?</h2>
-            <p class="item-intro text-muted">Que a maioria dos pokemons gosta de comida.</p>
+            <h2 class="text-uppercase">Está tudo conectado</h2>
+            <p class="item-intro text-muted">"Pelo mapa anterior podemos perceber que a aparição de pokémons tem maior concentração em certas regiões. Mas o que essas regiões têm de especial? Que tal examinarmos melhor cada uma dessas relações? "</p>
             <div class="row">
-              <div class="col-xl-3">
-                 <img class="img-responsive"  src='https://github.com/weslleylc/Pokemon-Go-Visualization/raw/master/img/characters/ash.png'  alt="" width="340" height="784">
-              </div>
-              <div class="col-xl-8 mx-auto">
+              <div class="col-xl-12 mx-auto">
+                <div class="containerfig">
+                  <img src="img/characters/box.png"  style="width:100%;">
+                  <div class="centered" style="font-family: 'Press Start 2P', cursive;font-size: 13px;">No grafo abaixo vemos o relacionamento entre alguns índices sociais e a aparição de pokémons. Você pode arrastar para a direita o <span style="color:blue">SLIDER</span>  abaixo da visualização para ver apenas as correlações mais fortes entre os índices e para a esquerda todas as correlações. Na tabela ao lado conseguimos ver a força real desses vínculos!.
+                  </div>
+               </div>
+                
                 <div class="modal-body">
                   
                   <div class=" text-center">
-                      <iframe src='scatter.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 760px;width: 680px;'></iframe>
+                       <iframe src='correlationFiles/correlation-graph.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 600px;width: 1000px;'></iframe>
 
                   </div>                      
                 </div>
@@ -445,17 +485,21 @@
           </div>
           <div class="container">
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase">Você Sabia?</h2>
-            <p class="item-intro text-muted">Que a maioria dos pokemons gosta de comida.</p>
+            <h2 class="text-uppercase">São tantas pokebolas...</h2>
+            <p class="item-intro text-muted">"Sabemos agora que existem correlações mais fortes e mais fracas entre o mundo Pokemon e o mundo real, mas como será essa correlação? Podemos visualizar nos gráficos abaixo, escolhendo os atributos de sua preferência! O que você acha? As relações se comportam do jeito que você imaginava?"</p>
             <div class="row">
-              <div class="col-xl-3">
-                 <img class="img-responsive"  src='https://github.com/weslleylc/Pokemon-Go-Visualization/raw/master/img/characters/misty.png'  alt="" width="340" height="784">
-              </div>
-              <div class="col-xl-8 mx-auto">
+              <div class="col-xl-12 mx-auto">
+                <div class="containerfig">
+                  <img src="img/characters/box.png"  style="width:100%;">
+                  <div class="centered" style="font-family: 'Press Start 2P', cursive;font-size: 13px;">Escolha na <span style="color:grey">CAIXINHA</span> aqui embaixo quais características você quer ver. Quando você escolher um grafíco novo será gerado automaticamente.
+                  </div>
+               </div>
+                
                 <div class="modal-body">
                   
                   <div class=" text-center">
-                        <iframe src='frames/table/table.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 760px;width: 800px;'></iframe>
+                      <iframe src='scatter.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 1000px;width: 1100px;'></iframe>
+
                   </div>                      
                 </div>
               </div>
@@ -470,7 +514,9 @@
       </div>
     </div>
 
-    <!-- Modal 4 -->
+
+
+    <!-- Modal 3 -->
     <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -481,17 +527,21 @@
           </div>
           <div class="container">
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase">Você Sabia?</h2>
-            <p class="item-intro text-muted">Que a maioria dos pokemons gosta de comida.</p>
+            <h2 class="text-uppercase">Já preparou seu almoço?</h2>
+            <p class="item-intro text-muted">"Então, cidades pequenas têm proporcionalmente mais pokemons raros, e a quantidade de ocorrências é proporcional ao tamanho da população. Quais outras informações podemos extrair dos dados para nos ajudar na missão de se tornar o maior mestre pokemon? Nos gráficos abaixo vemos algumas informações sobre os momentos em que os pokemons são capturados. Será que existe alguma explicação para este comportamento?"</p>
             <div class="row">
-              <div class="col-xl-2">
-                 <img class="img-responsive"  src='https://github.com/weslleylc/Pokemon-Go-Visualization/raw/master/img/characters/brock.png'  alt="" width="340" height="784" style='padding-rigth:10px;'>
-              </div>
-              <div class="col-xl-10 mx-auto">
+              <div class="col-xl-12 mx-auto">
+                <div class="containerfig">
+                  <img src="img/characters/box.png"  style="width:100%;">
+                  <div class="centered" style="font-family: 'Press Start 2P', cursive;font-size: 13px;">Clique e arraste sobre um dos <span style="color:blue">GRAFICOS</span> para visualizar os dados de uma faixa específica de valores. Você pode selecionar e descelecionar a vontade que automaticamente os grafícos será atualizados.
+                  </div>
+               </div>
+                
                 <div class="modal-body">
                   
                   <div class=" text-center">
-                        <iframe src='correlationFiles/correlation-graph.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 600px;width: 1000px;'></iframe>
+                      <iframe src='frames/table/table.html' frameborder='0' scrolling = 'no' class = 'iframe_chart_1' style='height: 960px;width: 1000px;'></iframe>
+
                   </div>                      
                 </div>
               </div>
@@ -505,9 +555,10 @@
         </div>
       </div>
     </div>
+   
 
 
-    <!-- Modal 4 -->
+    <!-- Modal 5 -->
     <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -518,8 +569,8 @@
           </div>
           <div class="container">
             <!-- Project Details Go Here -->
-            <h2 class="text-uppercase">Você Sabia?</h2>
-            <p class="item-intro text-muted">Que a maioria dos pokemons gosta de comida.</p>
+            <h2 class="text-uppercase">O fim da jornada</h2>
+            <p class="item-intro text-muted">As 12h no inteior, com aproximadamente 23° e uma velocidade dos ventos a belos 7km. Agora você sabe o clima,a hora e o local perfeitos(ou pelo menos mais prováveis) para ir caçar seus pokemons. O que está esperando? Temos que pegar!!!</p>
             <div class="row">
               <div class="col-xl-12">
                  <img class="img-responsive"  src='https://github.com/weslleylc/Pokemon-Go-Visualization/raw/master/img/characters/backgound.png'  alt="" width="896" height="1005">
