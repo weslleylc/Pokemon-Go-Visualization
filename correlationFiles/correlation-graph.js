@@ -350,7 +350,7 @@
         // draw the help text for the slider
         drawText({
             selector: '.sliderTextSVG',
-            text: 'slide to increase the correlation threshold -->',
+            text: 'slider para aumentar o  threshold de correlação-->',
             xOffset: 115,
             yOffset: 0
         });

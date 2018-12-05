@@ -119,8 +119,8 @@
 		// x dimension domain: [0.5, 8]
 		//use a gap of 65, this number is very obscure. It seems to depend on the width of the chart and on the number of dimensions. It was found using trial and error.
 		//set elasticY to true
-		magnitudeChart.width(380)
-			.height(150)
+		magnitudeChart.width(532)
+			.height(210)
 			.x(d3.scaleLinear().domain([10,40]))
 			.dimension(magDimension)
 		    .group(groupByMagCount)
@@ -137,8 +137,8 @@
 		// 480 x 150
 		// x dimension domain: [0, 100]
 
-		depthChart.width(380)
-			.height(150)
+		depthChart.width(532)
+			.height(210)
 			.x(d3.scaleLinear().domain([0,15]))
 			.dimension(depthDimension)
 		    .group(groupByDepthCount)
@@ -146,14 +146,14 @@
 		    .centerBar(false)	
 			.gap(1)
 			.elasticY(true)
-			.xAxisLabel("Força dos ventos(Km)")
+			.xAxisLabel("Velocidade(Km)")
 			.yAxisLabel("Ocorrências");
 
 		// Configure Time line graph
 		// height: 150
 		//x dimension: build the time scale from the data: d3.time.scale().domain(d3.extent(data, function(d) { return d.dtime; }))
-		timeChart.width(760)
-			.height(150)
+		timeChart.width(1064)
+			.height(210)
      	    .transitionDuration(500)
 			.dimension(hourDimension)
 		    .group(groupByHourCount)

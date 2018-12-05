@@ -95,8 +95,8 @@
     // }
 
     // Setup settings for graphic
-    var canvas_width = 700;
-    var canvas_height = 600;
+    var canvas_width = 1100;
+    var canvas_height = 800;
     var padding = 50;  // for chart edges
     var size = 20;
     // Create scale functions
@@ -166,15 +166,15 @@
             .attr("class","yLabel")
             .attr("transform", "rotate(-90)")
             .attr("y", -5)
-            .attr("x",0 - 320)
+            .attr("x",0 - 420)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .text("Aparições de Pokemon");
 
         svg.append("text")
             .attr("class","xLabel")
-            .attr("y", 570)
-            .attr("x",300)
+            .attr("y", 770)
+            .attr("x",500)
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .text("População");
