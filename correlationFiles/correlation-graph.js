@@ -354,7 +354,7 @@
             xOffset: 115,
             yOffset: 0
         });
-        
+
         d3.select('div#graph').append('div').attr('id', 'slider-container');
         d3.select('div#graph').append('div').attr('id', 'labels').attr('style','padding-top:8px').text("Correlação: "+0).attr('style','text-align:center');
 
